@@ -4,7 +4,7 @@
 
 > **📊 Quick Overview 슬라이드: <https://daeungo1.github.io/Github-Copilot-HVE-Core-brief/>**
 >
-> 17장 구성이며 진행 타이머, 스피커 노트(<kbd>N</kbd>), 목차(<kbd>O</kbd>), 다크 모드를 지원합니다. 이 README는 같은 내용의 상세 문서 버전입니다.
+> 18장 구성이며 상단 구간 진행 바, 스피커 노트(<kbd>N</kbd>), 목차(<kbd>O</kbd>), 다크 모드를 지원합니다. 이 README는 같은 내용의 상세 문서 버전입니다.
 
 > 이 저장소는 원본 코드를 포함하지 않는 **설명 문서 전용** 저장소입니다. 실제 아티팩트와 스크립트는 [microsoft/hve-core](https://github.com/microsoft/hve-core)에 있습니다.
 > 수치는 2026-09-02 기준 `main` 스냅샷입니다.

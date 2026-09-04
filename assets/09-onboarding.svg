@@ -12,6 +12,27 @@
       .s { font-size: 11px; fill: #64748b; }
       .mono { font-family: 'Cascadia Mono','Consolas','Courier New',monospace; }
       .ln { fill: none; stroke: #94a3b8; stroke-width: 1.7; marker-end: url(#arrow); }
+      /* GitHub Primer palette remap; CSS overrides presentation attributes. */
+      [fill="#eef2ff"], [fill="#f0f9ff"] { fill: #ddf4ff; }
+      [fill="#e0e7ff"] { fill: #b6e3ff; }
+      [fill="#ecfdf5"] { fill: #dafbe1; }
+      [fill="#fffbeb"], [fill="#fef9c3"] { fill: #fff8c5; }
+      [fill="#fff1f2"] { fill: #ffebe9; }
+      [fill="#f5f3ff"], [fill="#fdf2f8"] { fill: #fbefff; }
+      [fill="#f8fafc"] { fill: #f6f8fa; }
+      [fill="#4338ca"], [fill="#4f46e5"] { fill: #0969da; }
+      [fill="#1e293b"] { fill: #1f2328; }
+      [stroke="#6366f1"], [stroke="#0ea5e9"] { stroke: #0969da; }
+      [stroke="#4f46e5"] { stroke: #0550ae; }
+      [stroke="#10b981"] { stroke: #1a7f37; }
+      [stroke="#f59e0b"], [stroke="#eab308"] { stroke: #9a6700; }
+      [stroke="#f43f5e"] { stroke: #cf222e; }
+      [stroke="#8b5cf6"], [stroke="#ec4899"] { stroke: #8250df; }
+      [stroke="#94a3b8"], [stroke="#cbd5e1"] { stroke: #afb8c1; }
+      [stroke="#c7d2fe"], [stroke="#bae6fd"] { stroke: #b6e3ff; }
+      [stroke="#a7f3d0"] { stroke: #aceebb; }
+      [stroke="#fde68a"] { stroke: #f8e3a1; }
+      [stroke="#ddd6fe"] { stroke: #e0c5ff; }
     </style>
   </defs>
 
