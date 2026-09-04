@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 380" width="1080" height="380" role="img" aria-labelledby="t d">
+  <title id="t">신규 사용자 온보딩 경로</title>
+  <desc id="d">익스텐션 설치부터 Copilot Chat 실행, RPI Agent 선택, 작업 설명, 산출물 확인까지 다섯 단계를 거친 뒤 도메인 플래너 확장, 팀 표준 배포, 직접 기여로 갈라지는 경로도</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI','Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+      .n { font-size: 11px; font-weight: 700; fill: #4f46e5; letter-spacing: .5px; }
+      .h { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .s { font-size: 11px; fill: #64748b; }
+      .mono { font-family: 'Cascadia Mono','Consolas','Courier New',monospace; }
+      .ln { fill: none; stroke: #94a3b8; stroke-width: 1.7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1080" height="380" fill="#ffffff"/>
+
+  <path class="ln" d="M210 150 L236 150"/>
+  <path class="ln" d="M420 150 L446 150"/>
+  <path class="ln" d="M630 150 L656 150"/>
+  <path class="ln" d="M840 150 L866 150"/>
+  <path class="ln" d="M960 190 C960 244 360 240 360 272"/>
+  <path class="ln" d="M960 190 C960 244 610 240 610 272"/>
+  <path class="ln" d="M960 190 C960 244 860 240 860 272"/>
+
+  <rect x="30" y="110" width="180" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.6"/>
+  <text class="n" x="120" y="134" text-anchor="middle">STEP 1</text>
+  <text class="h" x="120" y="156" text-anchor="middle">익스텐션 설치</text>
+  <text class="s" x="120" y="176" text-anchor="middle">VS Code 마켓플레이스</text>
+
+  <rect x="240" y="110" width="180" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.6"/>
+  <text class="n" x="330" y="134" text-anchor="middle">STEP 2</text>
+  <text class="h" x="330" y="156" text-anchor="middle">Copilot Chat 열기</text>
+  <text class="s mono" x="330" y="176" text-anchor="middle">Ctrl+Alt+I</text>
+
+  <rect x="450" y="110" width="180" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.6"/>
+  <text class="n" x="540" y="134" text-anchor="middle">STEP 3</text>
+  <text class="h" x="540" y="156" text-anchor="middle">RPI Agent 선택</text>
+  <text class="s mono" x="540" y="176" text-anchor="middle">또는 /rpi</text>
+
+  <rect x="660" y="110" width="180" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.6"/>
+  <text class="n" x="750" y="134" text-anchor="middle">STEP 4</text>
+  <text class="h" x="750" y="156" text-anchor="middle">작업 설명</text>
+  <text class="s" x="750" y="176" text-anchor="middle">요구 사항 · 수용 기준</text>
+
+  <rect x="870" y="110" width="180" height="80" rx="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2.2"/>
+  <text class="n" x="960" y="134" text-anchor="middle">STEP 5</text>
+  <text class="h" x="960" y="156" text-anchor="middle">산출물 확인</text>
+  <text class="s mono" x="960" y="176" text-anchor="middle">.copilot-tracking/</text>
+
+  <rect x="250" y="272" width="220" height="68" rx="10" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.6"/>
+  <text class="h" x="360" y="300" text-anchor="middle">도메인 플래너로 확장</text>
+  <text class="s" x="360" y="320" text-anchor="middle">보안 · 접근성 · RAI · 개인정보</text>
+
+  <rect x="500" y="272" width="220" height="68" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+  <text class="h" x="610" y="300" text-anchor="middle">팀 표준 배포</text>
+  <text class="s mono" x="610" y="320" text-anchor="middle">docs/customization/</text>
+
+  <rect x="750" y="272" width="220" height="68" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.6"/>
+  <text class="h" x="860" y="300" text-anchor="middle">직접 기여</text>
+  <text class="s mono" x="860" y="320" text-anchor="middle">/hve-builder</text>
+</svg>

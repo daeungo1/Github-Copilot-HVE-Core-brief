@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 900" width="940" height="900" role="img" aria-labelledby="t d">
+  <title id="t">RPI 라이프사이클과 산출물</title>
+  <desc id="d">증거 충분성 판단으로 시작해 필요할 때만 리서치를 수행하고, 계획과 계획 비평, 구현, 리뷰를 거쳐 후속 조치가 결함과 결정 공백과 증거 공백을 각 단계로 되돌리는 흐름도</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#cbd5e1"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI','Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+      .h { font-size: 16px; font-weight: 700; fill: #0f172a; }
+      .r { font-size: 12px; fill: #475569; }
+      .p { font-size: 11.5px; fill: #64748b; font-family: 'Cascadia Mono','Consolas','Courier New',monospace; }
+      .e { font-size: 11.5px; fill: #64748b; }
+      .d { font-size: 14px; font-weight: 600; fill: #0f172a; }
+      .ln { fill: none; stroke: #94a3b8; stroke-width: 1.7; marker-end: url(#arrow); }
+      .lnd { fill: none; stroke: #cbd5e1; stroke-width: 1.6; stroke-dasharray: 6 4; marker-end: url(#arrowd); }
+    </style>
+  </defs>
+
+  <rect width="940" height="900" fill="#ffffff"/>
+
+  <path class="ln" d="M390 78 L390 96"/>
+  <path class="ln" d="M530 152 L616 151"/>
+  <text class="e" x="573" y="142" text-anchor="middle">아니오</text>
+  <path class="ln" d="M390 204 L390 264"/>
+  <text class="e" x="402" y="242">예</text>
+  <path class="ln" d="M765 194 L765 240 L460 240 L460 264"/>
+  <path class="ln" d="M390 354 L390 392"/>
+  <path class="ln" d="M390 482 L390 520"/>
+  <text class="e" x="402" y="508">Pass</text>
+  <path class="ln" d="M390 610 L390 648"/>
+  <path class="ln" d="M390 738 L390 776"/>
+
+  <path class="lnd" d="M206 439 L130 439 L130 311 L206 311"/>
+  <text class="e" x="122" y="379" text-anchor="end">Revise</text>
+
+  <path class="lnd" d="M574 800 L598 800 L598 567 L574 567"/>
+  <text class="e" x="592" y="700" text-anchor="middle" transform="rotate(-90 592 700)">결함</text>
+  <path class="lnd" d="M574 812 L640 812 L640 311 L574 311"/>
+  <text class="e" x="634" y="640" text-anchor="middle" transform="rotate(-90 634 640)">결정 공백</text>
+  <path class="lnd" d="M574 824 L682 824 L682 198"/>
+  <text class="e" x="676" y="560" text-anchor="middle" transform="rotate(-90 676 560)">증거 공백</text>
+
+  <rect x="210" y="26" width="360" height="52" rx="26" fill="#1e293b"/>
+  <text x="390" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">작업 컨텍스트 + 기존 증거</text>
+
+  <polygon points="250,152 390,100 530,152 390,204" fill="#fef9c3" stroke="#eab308" stroke-width="1.8"/>
+  <text class="d" x="390" y="158" text-anchor="middle">증거가 충분한가?</text>
+
+  <rect x="620" y="108" width="290" height="86" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.8"/>
+  <text class="h" x="765" y="138" text-anchor="middle">🔬 rpi-research</text>
+  <text class="r" x="765" y="158" text-anchor="middle">읽기 전용 조사 · 증거와 가정 분리</text>
+  <text class="p" x="765" y="178" text-anchor="middle">research/{날짜}/{작업}-research.md</text>
+
+  <rect x="210" y="268" width="360" height="86" rx="12" fill="#eef2ff" stroke="#6366f1" stroke-width="1.8"/>
+  <text class="h" x="390" y="298" text-anchor="middle">📋 rpi-plan</text>
+  <text class="r" x="390" y="318" text-anchor="middle">단계 분해 · 수용 기준 · Pxx / Pxx-Txx</text>
+  <text class="p" x="390" y="338" text-anchor="middle">plans/{날짜}/ + details/{날짜}/</text>
+
+  <rect x="210" y="396" width="360" height="86" rx="12" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.8"/>
+  <text class="h" x="390" y="426" text-anchor="middle">🧐 plan-critique</text>
+  <text class="r" x="390" y="446" text-anchor="middle">독립 비평 · Pass / Revise / Blocked</text>
+  <text class="p" x="390" y="466" text-anchor="middle">reviews/plans/{날짜}/</text>
+
+  <rect x="210" y="524" width="360" height="86" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+  <text class="h" x="390" y="554" text-anchor="middle">⚡ rpi-implement</text>
+  <text class="r" x="390" y="574" text-anchor="middle">승인 범위 실행 · CHG / DIV / AM 기록</text>
+  <text class="p" x="390" y="594" text-anchor="middle">changes/{날짜}/{작업}-changes.md</text>
+
+  <rect x="210" y="652" width="360" height="86" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8"/>
+  <text class="h" x="390" y="682" text-anchor="middle">✅ rpi-review</text>
+  <text class="r" x="390" y="702" text-anchor="middle">계획 대비 대조 · RV-xxx 심각도 판정</text>
+  <text class="p" x="390" y="722" text-anchor="middle">reviews/logs/{날짜}/{작업}-review.md</text>
+
+  <rect x="210" y="780" width="360" height="64" rx="12" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.8"/>
+  <text class="h" x="390" y="808" text-anchor="middle">➡️ Follow-up</text>
+  <text class="r" x="390" y="828" text-anchor="middle">결함 · 결정 · 증거 · 잔여 작업 라우팅</text>
+</svg>

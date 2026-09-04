@@ -1,0 +1,39 @@
+Github-Copilot-HVE-Core-brief
+
+이 저장소는 microsoft/hve-core (https://github.com/microsoft/hve-core) 를 분석해
+작성한 한국어 구조 브리핑 문서와 다이어그램만 포함합니다. 원본 소스 코드나
+아티팩트 파일은 포함하지 않습니다.
+
+------------------------------------------------------------------------------
+원본 저작물
+------------------------------------------------------------------------------
+
+HVE Core (Hypervelocity Engineering Core)
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT License. See LICENSE for the full text.
+Source: https://github.com/microsoft/hve-core
+
+원본 저장소의 일부 스킬 콘텐츠는 OWASP Foundation 발행물에서 파생되었으며
+CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/) 이 적용됩니다.
+해당 범위는 원본의 THIRD-PARTY-NOTICES 에 정리되어 있습니다.
+https://github.com/microsoft/hve-core/blob/main/THIRD-PARTY-NOTICES
+
+------------------------------------------------------------------------------
+이 저장소의 콘텐츠
+------------------------------------------------------------------------------
+
+README.md 및 assets/*.svg 는 위 원본을 요약하고 재구성한 2차 저작물이며,
+원본과 동일하게 MIT License 조건으로 제공됩니다.
+
+기재된 수치와 디렉터리 구조는 2026-09-02 기준 microsoft/hve-core main 브랜치
+스냅샷을 반영합니다. 원본이 갱신되면 실제 내용과 달라질 수 있습니다.
+
+------------------------------------------------------------------------------
+면책
+------------------------------------------------------------------------------
+
+이 저장소는 Microsoft 의 공식 배포물이 아닙니다. 개인이 학습 목적으로 정리한
+비공식 요약본이며, Microsoft 의 후원이나 보증을 의미하지 않습니다.
+
+상표: Microsoft, GitHub, GitHub Copilot, VS Code 등은 각 소유자의 상표입니다.
+상표 사용은 각 소유자의 상표 및 브랜드 가이드라인을 따릅니다.

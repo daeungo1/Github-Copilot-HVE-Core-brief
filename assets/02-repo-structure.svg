@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 900" width="880" height="900" role="img" aria-labelledby="t d">
+  <title id="t">HVE Core 저장소 최상위 구조</title>
+  <desc id="d">저장소 루트가 .github, docs, scripts, evals, extension, 루트 메타 파일로 나뉘고 각 디렉터리의 주요 하위 항목이 이어지는 트리 구조도</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI','Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+      .root { font-size: 17px; font-weight: 700; fill: #ffffff; }
+      .dir { font-size: 14px; font-weight: 600; fill: #0f172a; }
+      .lf { font-size: 12.5px; fill: #1f2937; }
+      .mono { font-family: 'Cascadia Mono','Consolas','Courier New',monospace; }
+      .ln { fill: none; stroke: #94a3b8; stroke-width: 1.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="880" height="900" fill="#ffffff"/>
+
+  <path class="ln" d="M200 449 C222 449 222 133 240 133"/>
+  <path class="ln" d="M200 449 C222 449 222 361 240 361"/>
+  <path class="ln" d="M200 449 C222 449 222 605 240 605"/>
+  <path class="ln" d="M200 449 C222 449 222 753 240 753"/>
+  <path class="ln" d="M200 449 C222 449 222 799 240 799"/>
+  <path class="ln" d="M200 449 C222 449 222 845 240 845"/>
+
+  <path class="ln" d="M440 133 C470 133 470 53 500 53"/>
+  <path class="ln" d="M440 133 C470 133 470 85 500 85"/>
+  <path class="ln" d="M440 133 C470 133 470 117 500 117"/>
+  <path class="ln" d="M440 133 C470 133 470 149 500 149"/>
+  <path class="ln" d="M440 133 C470 133 470 181 500 181"/>
+  <path class="ln" d="M440 133 C470 133 470 213 500 213"/>
+
+  <path class="ln" d="M440 361 C470 361 470 265 500 265"/>
+  <path class="ln" d="M440 361 C470 361 470 297 500 297"/>
+  <path class="ln" d="M440 361 C470 361 470 329 500 329"/>
+  <path class="ln" d="M440 361 C470 361 470 361 500 361"/>
+  <path class="ln" d="M440 361 C470 361 470 393 500 393"/>
+  <path class="ln" d="M440 361 C470 361 470 425 500 425"/>
+  <path class="ln" d="M440 361 C470 361 470 457 500 457"/>
+
+  <path class="ln" d="M440 605 C470 605 470 509 500 509"/>
+  <path class="ln" d="M440 605 C470 605 470 541 500 541"/>
+  <path class="ln" d="M440 605 C470 605 470 573 500 573"/>
+  <path class="ln" d="M440 605 C470 605 470 605 500 605"/>
+  <path class="ln" d="M440 605 C470 605 470 637 500 637"/>
+  <path class="ln" d="M440 605 C470 605 470 669 500 669"/>
+  <path class="ln" d="M440 605 C470 605 470 701 500 701"/>
+
+  <path class="ln" d="M440 753 L500 753"/>
+  <path class="ln" d="M440 799 L500 799"/>
+  <path class="ln" d="M440 845 L500 845"/>
+
+  <rect x="30" y="425" width="170" height="48" rx="10" fill="#4338ca"/>
+  <text class="root mono" x="115" y="455" text-anchor="middle">hve-core/</text>
+
+  <rect x="240" y="112" width="200" height="42" rx="9" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="139" text-anchor="middle">.github/</text>
+  <rect x="240" y="340" width="200" height="42" rx="9" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="367" text-anchor="middle">docs/</text>
+  <rect x="240" y="584" width="200" height="42" rx="9" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="611" text-anchor="middle">scripts/</text>
+  <rect x="240" y="732" width="200" height="42" rx="9" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="759" text-anchor="middle">evals/</text>
+  <rect x="240" y="778" width="200" height="42" rx="9" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="805" text-anchor="middle">extension/</text>
+  <rect x="240" y="824" width="200" height="42" rx="9" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text class="dir" x="340" y="851" text-anchor="middle">루트 메타 파일</text>
+
+  <rect x="500" y="40" width="340" height="26" rx="6" fill="#f8fafc" stroke="#c7d2fe"/>
+  <text class="lf" x="514" y="58"><tspan class="mono">agents/</tspan> 에이전트 58개</text>
+  <rect x="500" y="72" width="340" height="26" rx="6" fill="#f8fafc" stroke="#c7d2fe"/>
+  <text class="lf" x="514" y="90"><tspan class="mono">prompts/</tspan> 프롬프트 49개</text>
+  <rect x="500" y="104" width="340" height="26" rx="6" fill="#f8fafc" stroke="#c7d2fe"/>
+  <text class="lf" x="514" y="122"><tspan class="mono">instructions/</tspan> 인스트럭션 64개</text>
+  <rect x="500" y="136" width="340" height="26" rx="6" fill="#f8fafc" stroke="#c7d2fe"/>
+  <text class="lf" x="514" y="154"><tspan class="mono">skills/</tspan> 스킬 75개</text>
+  <rect x="500" y="168" width="340" height="26" rx="6" fill="#f8fafc" stroke="#c7d2fe"/>
+  <text class="lf" x="514" y="186"><tspan class="mono">workflows/</tspan> CI 워크플로 70개</text>
+  <rect x="500" y="200" width="340" height="26" rx="6" fill="#f8fafc" stroke="#c7d2fe"/>
+  <text class="lf mono" x="514" y="218">copilot-instructions.md</text>
+
+  <rect x="500" y="252" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="270"><tspan class="mono">getting-started/</tspan> 설치와 첫 워크플로</text>
+  <rect x="500" y="284" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="302"><tspan class="mono">rpi/</tspan> RPI 방법론 심화</text>
+  <rect x="500" y="316" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="334"><tspan class="mono">hve-guide/</tspan> lifecycle + roles</text>
+  <rect x="500" y="348" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="366"><tspan class="mono">architecture/</tspan> 아티팩트와 파이프라인</text>
+  <rect x="500" y="380" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="398"><tspan class="mono">contributing/</tspan> 기여 및 검증 규약</text>
+  <rect x="500" y="412" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="430"><tspan class="mono">reference/</tspan> 자동 생성 카탈로그</text>
+  <rect x="500" y="444" width="340" height="26" rx="6" fill="#f8fafc" stroke="#a7f3d0"/>
+  <text class="lf" x="514" y="462"><tspan class="mono">docusaurus/</tspan> 문서 사이트 빌드</text>
+
+  <rect x="500" y="496" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="514"><tspan class="mono">linting/</tspan> 마크다운·YAML·프론트매터</text>
+  <rect x="500" y="528" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="546"><tspan class="mono">security/</tspan> 핀 고정·권한·피드 검증</text>
+  <rect x="500" y="560" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="578"><tspan class="mono">evals/</tspan> Vally 평가 실행</text>
+  <rect x="500" y="592" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="610"><tspan class="mono">plugins/</tspan> 매니페스트 동기화</text>
+  <rect x="500" y="624" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="642"><tspan class="mono">extension/</tspan> VSIX 준비와 패키징</text>
+  <rect x="500" y="656" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="674"><tspan class="mono">tests/</tspan> Pester 테스트</text>
+  <rect x="500" y="688" width="340" height="26" rx="6" fill="#f8fafc" stroke="#fde68a"/>
+  <text class="lf" x="514" y="706"><tspan class="mono">lib/</tspan> 공유 PowerShell 모듈</text>
+
+  <rect x="500" y="740" width="340" height="26" rx="6" fill="#f8fafc" stroke="#ddd6fe"/>
+  <text class="lf" x="514" y="758">평가 스위트 8종 (에이전트 동작 검증)</text>
+  <rect x="500" y="786" width="340" height="26" rx="6" fill="#f8fafc" stroke="#bae6fd"/>
+  <text class="lf" x="514" y="804">VS Code 익스텐션 템플릿과 패키징</text>
+  <rect x="500" y="832" width="340" height="26" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="lf" x="514" y="850"><tspan class="mono">plugin.json</tspan> · <tspan class="mono">package.json</tspan> · 거버넌스</text>
+</svg>

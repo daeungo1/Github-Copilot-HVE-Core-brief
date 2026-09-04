@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" width="1100" height="440" role="img" aria-labelledby="t d">
+  <title id="t">AI 아티팩트 4계층 위임 흐름</title>
+  <desc id="d">사용자 요청이 프롬프트를 거쳐 에이전트로 위임되고, 에이전트가 인스트럭션과 스킬을 활용하며 서브에이전트로 분기했다가 결과와 추적 산출물로 수렴하는 흐름도</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#cbd5e1"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI','Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+      .h { font-size: 16px; font-weight: 700; fill: #0f172a; }
+      .hw { font-size: 16px; font-weight: 700; fill: #ffffff; }
+      .s { font-size: 11.5px; fill: #64748b; }
+      .sw { font-size: 11.5px; fill: #e0e7ff; }
+      .e { font-size: 11.5px; fill: #64748b; }
+      .ln { fill: none; stroke: #94a3b8; stroke-width: 1.7; marker-end: url(#arrow); }
+      .lnd { fill: none; stroke: #cbd5e1; stroke-width: 1.6; stroke-dasharray: 6 4; marker-end: url(#arrowd); }
+      .mono { font-family: 'Cascadia Mono','Consolas','Courier New',monospace; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="440" fill="#ffffff"/>
+
+  <path class="ln" d="M170 212 L206 212"/>
+  <path class="ln" d="M390 212 L426 212"/>
+  <path class="ln" d="M610 212 C630 212 630 98 646 98"/>
+  <path class="ln" d="M610 212 L646 212"/>
+  <path class="ln" d="M610 212 C630 212 630 326 646 326"/>
+  <path class="ln" d="M860 98 C880 98 880 212 896 212"/>
+  <path class="ln" d="M860 212 L896 212"/>
+  <path class="lnd" d="M755 364 L755 400 L520 400 L520 258"/>
+  <text class="e" x="640" y="394">컨텍스트 격리 후 반환</text>
+
+  <rect x="30" y="180" width="140" height="64" rx="32" fill="#1e293b"/>
+  <text class="hw" x="100" y="210" text-anchor="middle">사용자</text>
+  <text class="sw" x="100" y="230" text-anchor="middle">요청</text>
+
+  <rect x="210" y="170" width="180" height="84" rx="12" fill="#eef2ff" stroke="#6366f1" stroke-width="1.8"/>
+  <text class="h" x="300" y="203" text-anchor="middle">Prompt</text>
+  <text class="s mono" x="300" y="222" text-anchor="middle">*.prompt.md</text>
+  <text class="s" x="300" y="240" text-anchor="middle">무엇을 하고 싶은가</text>
+
+  <rect x="430" y="170" width="180" height="84" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.8"/>
+  <text class="h" x="520" y="203" text-anchor="middle">Agent</text>
+  <text class="s mono" x="520" y="222" text-anchor="middle">*.agent.md</text>
+  <text class="s" x="520" y="240" text-anchor="middle">어떻게 실행할 것인가</text>
+
+  <rect x="650" y="60" width="210" height="76" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+  <text class="h" x="755" y="90" text-anchor="middle">Instructions</text>
+  <text class="s mono" x="755" y="109" text-anchor="middle">*.instructions.md</text>
+  <text class="s" x="755" y="126" text-anchor="middle">glob 자동 적용 · 수동적 규칙</text>
+
+  <rect x="650" y="174" width="210" height="76" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8"/>
+  <text class="h" x="755" y="204" text-anchor="middle">Skills</text>
+  <text class="s mono" x="755" y="223" text-anchor="middle">SKILL.md</text>
+  <text class="s" x="755" y="240" text-anchor="middle">명시적 호출 · 능동적 실행</text>
+
+  <rect x="650" y="288" width="210" height="76" rx="12" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.8"/>
+  <text class="h" x="755" y="318" text-anchor="middle">Subagents</text>
+  <text class="s mono" x="755" y="337" text-anchor="middle">subagents/*.agent.md</text>
+  <text class="s" x="755" y="354" text-anchor="middle">27개 · 좁은 위임 작업</text>
+
+  <rect x="900" y="170" width="170" height="84" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.8"/>
+  <text class="h" x="985" y="203" text-anchor="middle">결과</text>
+  <text class="s" x="985" y="223" text-anchor="middle">소스 변경 +</text>
+  <text class="s mono" x="985" y="241" text-anchor="middle">.copilot-tracking/</text>
+</svg>

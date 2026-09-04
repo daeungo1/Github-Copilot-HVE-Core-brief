@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" width="1080" height="540" role="img" aria-labelledby="t d">
+  <title id="t">CI 검증과 릴리스 파이프라인</title>
+  <desc id="d">풀 리퀘스트가 린트, 보안, 테스트, 평가 검증을 통과해 main에 머지된 뒤 프리릴리스와 스테이블 승격 사다리를 거쳐 마켓플레이스에 게시되고, 주간 스케줄이 보안 유지보수를 수행하는 파이프라인 구조도</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI','Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif; }
+      .pt { font-size: 13px; font-weight: 700; fill: #334155; }
+      .h { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .hw { font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .s { font-size: 11px; fill: #64748b; }
+      .sw { font-size: 11px; fill: #cbd5e1; }
+      .e { font-size: 11.5px; fill: #64748b; }
+      .mono { font-family: 'Cascadia Mono','Consolas','Courier New',monospace; }
+      .ln { fill: none; stroke: #94a3b8; stroke-width: 1.7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1080" height="540" fill="#ffffff"/>
+
+  <path class="ln" d="M180 88 L216 88"/>
+  <path class="ln" d="M640 119 C665 119 665 88 686 88"/>
+  <path class="ln" d="M775 116 L775 240 L135 240 L135 272"/>
+  <text class="e" x="450" y="232" text-anchor="middle">머지 후 승격 PR 생성</text>
+  <path class="ln" d="M240 312 L286 312"/>
+  <path class="ln" d="M500 312 L546 312"/>
+  <path class="ln" d="M395 344 L395 384 L135 384 L135 412"/>
+  <text class="e" x="270" y="376" text-anchor="middle">PreRelease 게시 후 승격</text>
+  <path class="ln" d="M240 452 L286 452"/>
+  <path class="ln" d="M500 452 L546 452"/>
+  <path class="ln" d="M945 336 L945 372"/>
+
+  <rect x="30" y="60" width="150" height="56" rx="10" fill="#1e293b"/>
+  <text class="hw" x="105" y="84" text-anchor="middle">Pull Request</text>
+  <text class="sw" x="105" y="102" text-anchor="middle">기여 브랜치</text>
+
+  <rect x="220" y="24" width="420" height="190" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-dasharray="5 4"/>
+  <text class="pt" x="236" y="48">PR 검증 게이트 · pr-validation.yml</text>
+  <rect x="236" y="60" width="184" height="64" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="1.4"/>
+  <text class="h" x="328" y="86" text-anchor="middle">린트</text>
+  <text class="s mono" x="328" y="106" text-anchor="middle">md · yaml · json · ps · py</text>
+  <rect x="440" y="60" width="184" height="64" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.4"/>
+  <text class="h" x="532" y="86" text-anchor="middle">보안</text>
+  <text class="s mono" x="532" y="106" text-anchor="middle">CodeQL · 핀 고정 · 권한</text>
+  <rect x="236" y="136" width="184" height="64" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.4"/>
+  <text class="h" x="328" y="162" text-anchor="middle">테스트</text>
+  <text class="s mono" x="328" y="182" text-anchor="middle">Pester · pytest · node</text>
+  <rect x="440" y="136" width="184" height="64" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.4"/>
+  <text class="h" x="532" y="162" text-anchor="middle">평가</text>
+  <text class="s mono" x="532" y="182" text-anchor="middle">Vally evals 8종</text>
+
+  <rect x="690" y="60" width="170" height="56" rx="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.8"/>
+  <text class="h mono" x="775" y="84" text-anchor="middle">main</text>
+  <text class="s" x="775" y="102" text-anchor="middle">머지 완료</text>
+
+  <rect x="30" y="280" width="210" height="64" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+  <text class="h" x="135" y="308" text-anchor="middle">PreRelease 승격 PR</text>
+  <text class="s" x="135" y="328" text-anchor="middle">검토 후 머지</text>
+
+  <rect x="290" y="280" width="210" height="64" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+  <text class="h mono" x="395" y="308" text-anchor="middle">release/prerelease</text>
+  <text class="s" x="395" y="328" text-anchor="middle">홀수 마이너 태그</text>
+
+  <rect x="550" y="280" width="230" height="64" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.6"/>
+  <text class="h" x="665" y="308" text-anchor="middle">마켓플레이스 게시</text>
+  <text class="s" x="665" y="328" text-anchor="middle">VS Code PreRelease 채널</text>
+
+  <rect x="30" y="420" width="210" height="64" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+  <text class="h" x="135" y="448" text-anchor="middle">Stable 승격 PR</text>
+  <text class="s" x="135" y="468" text-anchor="middle">검토 후 머지</text>
+
+  <rect x="290" y="420" width="210" height="64" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+  <text class="h mono" x="395" y="448" text-anchor="middle">release/stable</text>
+  <text class="s" x="395" y="468" text-anchor="middle">짝수 마이너 태그</text>
+
+  <rect x="550" y="420" width="230" height="64" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.6"/>
+  <text class="h" x="665" y="448" text-anchor="middle">마켓플레이스 게시</text>
+  <text class="s" x="665" y="468" text-anchor="middle">VS Code Stable 채널</text>
+
+  <rect x="840" y="280" width="210" height="56" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.6"/>
+  <text class="h" x="945" y="304" text-anchor="middle">주간 스케줄</text>
+  <text class="s" x="945" y="322" text-anchor="middle">일요일 02:00 UTC</text>
+
+  <rect x="840" y="372" width="210" height="88" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.6"/>
+  <text class="h" x="945" y="400" text-anchor="middle">보안 유지보수</text>
+  <text class="s" x="945" y="420" text-anchor="middle">OpenSSF Scorecard · VEX</text>
+  <text class="s" x="945" y="438" text-anchor="middle">SHA 신선도 · 링크 검사</text>
+</svg>
