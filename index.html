@@ -288,6 +288,8 @@ figcaption { margin-top: 8px; font-size: 13.5px; color: var(--cp-text-soft); }
 .split { display: grid; grid-template-columns: 1.4fr .8fr; gap: 22px; align-items: start; }
 .split.wide-left { grid-template-columns: 1.7fr 1fr; }
 .split.even { grid-template-columns: 1fr 1fr; }
+/* Table on the left, diagram on the right: the diagram needs the wider track. */
+.split.figure-right { grid-template-columns: .88fr 1.12fr; }
 
 /* table */
 
@@ -458,7 +460,7 @@ kbd {
   .card h3 { font-size: 15px; }
   .card p { font-size: 14px; }
   table { font-size: 13.5px; }
-  th, td { padding: 4px 8px; }
+  th, td { padding: 3px 8px; }
   ul.clean li { font-size: 14px; margin-bottom: 6px; }
   .callout { font-size: 14px; padding: 10px 14px; }
   .flow { font-size: 13px; }
@@ -467,6 +469,7 @@ kbd {
   .stat b { font-size: clamp(22px, 3vw, 32px); }
   .stat span { font-size: 12.5px; }
   figure img { max-height: 56vh; }
+  .split.figure-right figure img { max-height: 59vh; }
 }
 
 @media (max-width: 900px) {
@@ -782,7 +785,8 @@ kbd {
   <div class="kicker">범위</div>
   <h2>도메인 패키지: 무게 중심은 기획과 보안</h2>
   <p class="lede">4계층이 같은 패키지 이름을 공유합니다. 아래 분포가 저장소가 실제로 어디에 투자했는지 보여줍니다.</p>
-  <div class="body split">
+  <div class="body split figure-right">
+    <div>
     <table>
       <thead><tr><th>패키지</th><th class="num">에이전트</th><th class="num">프롬프트</th><th class="num">인스트럭션</th><th class="num">스킬</th></tr></thead>
       <tbody>
@@ -791,22 +795,15 @@ kbd {
         <tr><td><code>coding-standards</code></td><td class="num">9</td><td class="num">0</td><td class="num">14</td><td class="num">2</td></tr>
         <tr><td><code>hve-core</code></td><td class="num">6</td><td class="num">11</td><td class="num">8</td><td class="num">9</td></tr>
         <tr><td><code>design-thinking</code></td><td class="num">2</td><td class="num">15</td><td class="num">1</td><td class="num">6</td></tr>
-        <tr><td><code>accessibility</code></td><td class="num">4</td><td class="num">1</td><td class="num">2</td><td class="num">1</td></tr>
-        <tr><td><code>rai</code> · <code>privacy</code></td><td class="num">5</td><td class="num">3</td><td class="num">3</td><td class="num">1</td></tr>
         <tr><td><code>rpi</code></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">8</td></tr>
-        <tr><td>기타 (실험·공유·설치·DS)</td><td class="num">8</td><td class="num">4</td><td class="num">23</td><td class="num">20</td></tr>
+        <tr><td>기타 (접근성·RAI·실험·공유)</td><td class="num">17</td><td class="num">8</td><td class="num">28</td><td class="num">22</td></tr>
         <tr class="total"><td>합계</td><td class="num">58</td><td class="num">49</td><td class="num">64</td><td class="num">75</td></tr>
       </tbody>
     </table>
-    <div>
-      <figure><img src="assets/06-domain-map.svg" alt="기획, 보안, 접근성 도메인 체인이 RPI 구현으로 모이고 코드 리뷰로 이어지는 구조도" style="max-height:34vh"></figure>
-      <div class="card" style="margin-top:12px">
-        <h3>보안 커버리지</h3>
-        <p>OWASP Top 10 · LLM · Agentic · MCP · CI/CD · Docker · Infrastructure 전 시리즈에 더해 STRIDE 위협 모델링, SLSA·SBOM 공급망, OpenVEX 취약점 트리아지까지 포함합니다.</p>
-      </div>
     </div>
+    <figure><img src="assets/06-domain-map.svg" alt="기획, 보안, 접근성 도메인 체인이 RPI 구현으로 모이고 코드 리뷰로 이어지는 구조도"></figure>
   </div>
-  <div class="notes"><b>11:00~12:00</b> 표 전체를 읽지 말고 상위 3개만. "기획과 보안이 가장 두껍다"가 메시지. RPI는 스킬 8개뿐인데 라이프사이클 전체를 담당한다는 대비가 인상적.</div>
+  <div class="notes"><b>11:00~12:00</b> 표 전체를 읽지 말고 상위 3개만. "기획과 보안이 가장 두껍다"가 메시지. RPI는 스킬 8개뿐인데 라이프사이클 전체를 담당한다는 대비가 인상적. <b>보안 커버리지</b> OWASP Top 10 · LLM · Agentic · MCP · CI/CD · Docker · Infrastructure 전 시리즈에 STRIDE 위협 모델링, SLSA·SBOM 공급망, OpenVEX 트리아지까지 포함.</div>
 </section>
 
 <section class="slide" data-ch="5">
