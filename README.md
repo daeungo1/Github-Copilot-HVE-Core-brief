@@ -2,6 +2,10 @@
 
 [microsoft/hve-core](https://github.com/microsoft/hve-core) 저장소의 전체 구조를 처음 보는 사람도 따라갈 수 있게 정리한 한국어 브리핑입니다. 무엇이 어디에 있고, 어떤 흐름으로 동작하며, 어떤 검증과 배포 경로를 거치는지 다이어그램 중심으로 설명합니다.
 
+> **📊 15분 발표용 슬라이드: <https://daeungo1.github.io/Github-Copilot-HVE-Core-brief/>**
+>
+> 17장 구성이며 발표 타이머, 스피커 노트(<kbd>N</kbd>), 목차(<kbd>O</kbd>), 다크 모드를 지원합니다. 이 README는 같은 내용의 상세 문서 버전입니다.
+
 > 이 저장소는 원본 코드를 포함하지 않는 **설명 문서 전용** 저장소입니다. 실제 아티팩트와 스크립트는 [microsoft/hve-core](https://github.com/microsoft/hve-core)에 있습니다.
 > 수치는 2026-09-02 기준 `main` 스냅샷입니다.
 
