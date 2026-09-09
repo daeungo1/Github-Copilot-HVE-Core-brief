@@ -664,7 +664,7 @@ kbd {
   <p class="lede en">Hypervelocity Engineering Core. A set of AI workflow assets that binds specialized agents, reusable prompts, auto-applied coding standards, and validated skills into <strong>one workflow system</strong>.</p>
   <div class="body split wide-left">
     <figure>
-      <img src="assets/01-overview.svg" data-src="assets/01-overview.svg" alt="HVE Core hub branching into artifacts, methods, quality gates, and distribution">
+      <img data-src="assets/01-overview.svg" alt="HVE Core hub branching into artifacts, methods, quality gates, and distribution">
     </figure>
     <div>
       <div class="grid g2">
@@ -693,7 +693,7 @@ kbd {
   <p class="lede en">Every AI asset sits under <code>.github/</code>, the validation engine under <code>scripts/</code>, and the documentation under <code>docs/</code>.</p>
   <div class="body">
     <figure>
-      <img src="assets/02-repo-structure.svg" data-src="assets/02-repo-structure.svg" alt="Repository tree split into .github, docs, scripts, evals, extension, and root metadata" style="max-height:60vh">
+      <img data-src="assets/02-repo-structure.svg" alt="Repository tree split into .github, docs, scripts, evals, extension, and root metadata" style="max-height:60vh">
     </figure>
   </div>
   <div class="notes ko"><b>3:15~4:00</b> 빠르게 지나갈 슬라이드. ".github 안에 네 종류 자산이 있다"와 "scripts에 181개 검증 스크립트가 있다" 두 가지만 강조.</div>
@@ -708,7 +708,7 @@ kbd {
   <p class="lede en">A request starts at a prompt, is delegated to an agent, and the agent pulls in instructions (standards) and skills (executable capability).</p>
   <div class="body">
     <figure>
-      <img src="assets/03-artifact-layers.svg" data-src="assets/03-artifact-layers.svg" alt="Request flowing from prompt to agent, then to instructions, skills, and subagents" style="max-height:32vh">
+      <img data-src="assets/03-artifact-layers.svg" alt="Request flowing from prompt to agent, then to instructions, skills, and subagents" style="max-height:32vh">
     </figure>
     <table style="margin-top:14px">
       <thead><tr>
@@ -797,7 +797,7 @@ kbd {
   <p class="lede en">Every stage from setup to operations maps to specific agents and skills. Review, delivery, and operations all loop back into implementation.</p>
   <div class="body">
     <figure>
-      <img src="assets/04-lifecycle.svg" data-src="assets/04-lifecycle.svg" alt="Nine stages from setup to operations with feedback loops back into implementation" style="max-height:46vh">
+      <img data-src="assets/04-lifecycle.svg" alt="Nine stages from setup to operations with feedback loops back into implementation" style="max-height:46vh">
     </figure>
     <p class="lede ko" style="margin-top:12px">
       Design Thinking 9개 메서드는 <strong>3개의 종료 지점</strong>(문제 정의문 · 검증된 콘셉트 · 구현 스펙)에서 Stage 2로 합류합니다.
@@ -854,7 +854,7 @@ kbd {
   <p class="lede en">First judge whether the evidence is adequate. If it is, skip research; turn it on only when a gap is demonstrated.</p>
   <div class="body split even">
     <figure>
-      <img src="assets/05-rpi.svg" data-src="assets/05-rpi.svg" alt="Evidence gate leading into research, plan, critique, implement, review, and follow-up" style="max-height:55vh">
+      <img data-src="assets/05-rpi.svg" alt="Evidence gate leading into research, plan, critique, implement, review, and follow-up" style="max-height:55vh">
     </figure>
     <div>
       <div class="card">
@@ -956,7 +956,7 @@ kbd {
       </tbody>
     </table>
     </div>
-    <figure><img src="assets/06-domain-map.svg" data-src="assets/06-domain-map.svg" alt="Planning, security, and accessibility chains converging into RPI implementation and code review"></figure>
+    <figure><img data-src="assets/06-domain-map.svg" alt="Planning, security, and accessibility chains converging into RPI implementation and code review"></figure>
   </div>
   <div class="notes ko"><b>11:00~12:00</b> 표 전체를 읽지 말고 상위 3개만. "기획과 보안이 가장 두껍다"가 메시지. RPI는 스킬 8개뿐인데 라이프사이클 전체를 담당한다는 대비가 인상적. <b>보안 커버리지</b> OWASP Top 10 · LLM · Agentic · MCP · CI/CD · Docker · Infrastructure 전 시리즈에 STRIDE 위협 모델링, SLSA·SBOM 공급망, OpenVEX 트리아지까지 포함.</div>
   <div class="notes en"><b>11:00-12:00</b> Read only the top three rows. The message is "planning and security are the heaviest." The contrast that RPI carries the whole lifecycle with just eight skills lands well. <b>Security coverage</b> spans the full OWASP series (Top 10, LLM, Agentic, MCP, CI/CD, Docker, Infrastructure) plus STRIDE threat modeling, SLSA and SBOM supply chain, and OpenVEX triage.</div>
@@ -1011,7 +1011,7 @@ kbd {
   <p class="lede en">Seventy workflows cover PR validation, security scanning, and the release ladder. Docs and scripts alone cannot guarantee prompt quality, so there is a separate evaluation suite.</p>
   <div class="body split even">
     <figure>
-      <img src="assets/07-ci-pipeline.svg" data-src="assets/07-ci-pipeline.svg" alt="PR validation gate feeding main, then the prerelease and stable ladders to the marketplace" style="max-height:40vh">
+      <img data-src="assets/07-ci-pipeline.svg" alt="PR validation gate feeding main, then the prerelease and stable ladders to the marketplace" style="max-height:40vh">
     </figure>
     <div>
       <table>
@@ -1046,7 +1046,7 @@ kbd {
   <p class="lede en">The root <code>plugin.json</code> is the single source of truth for composition. The same asset set goes out as an extension, a CLI plugin, and a clone.</p>
   <div class="body split">
     <figure>
-      <img src="assets/08-distribution.svg" data-src="assets/08-distribution.svg" alt="Artifacts flowing through plugin.json into extension, CLI plugin, and clone channels" style="max-height:40vh">
+      <img data-src="assets/08-distribution.svg" alt="Artifacts flowing through plugin.json into extension, CLI plugin, and clone channels" style="max-height:40vh">
     </figure>
     <div>
       <table>
@@ -1082,7 +1082,7 @@ kbd {
   <h2 class="en">You can start in five minutes</h2>
   <div class="body split wide-left">
     <figure>
-      <img src="assets/09-onboarding.svg" data-src="assets/09-onboarding.svg" alt="Five onboarding steps branching into domain planners, team rollout, and contribution" style="max-height:34vh">
+      <img data-src="assets/09-onboarding.svg" alt="Five onboarding steps branching into domain planners, team rollout, and contribution" style="max-height:34vh">
     </figure>
     <div>
       <div class="card">
