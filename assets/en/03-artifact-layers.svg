@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" width="1100" height="440" role="img" aria-labelledby="t d">
+  <title id="t">Four-tier artifact delegation</title>
+  <desc id="d">A user request flows through a prompt to an agent, which draws on instructions and skills and delegates to subagents before converging on results and tracking artifacts</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#afb8c1"/>
+    </marker>
+    <marker id="arrowd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d1d9e0"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .h { font-size: 16px; font-weight: 700; fill: #1f2328; }
+      .hw { font-size: 16px; font-weight: 700; fill: #ffffff; }
+      .s { font-size: 11.5px; fill: #59636e; }
+      .sw { font-size: 11.5px; fill: #d1d9e0; }
+      .e { font-size: 11.5px; fill: #59636e; }
+      .ln { fill: none; stroke: #afb8c1; stroke-width: 1.7; marker-end: url(#arrow); }
+      .lnd { fill: none; stroke: #d1d9e0; stroke-width: 1.6; stroke-dasharray: 6 4; marker-end: url(#arrowd); }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="440" fill="#ffffff"/>
+
+  <path class="ln" d="M170 212 L206 212"/>
+  <path class="ln" d="M390 212 L426 212"/>
+  <path class="ln" d="M610 212 C630 212 630 98 646 98"/>
+  <path class="ln" d="M610 212 L646 212"/>
+  <path class="ln" d="M610 212 C630 212 630 326 646 326"/>
+  <path class="ln" d="M860 98 C880 98 880 212 896 212"/>
+  <path class="ln" d="M860 212 L896 212"/>
+  <path class="lnd" d="M755 364 L755 400 L520 400 L520 258"/>
+  <text class="e" x="640" y="394">isolated context, result returned</text>
+
+  <rect x="30" y="180" width="140" height="64" rx="32" fill="#1f2328"/>
+  <text class="hw" x="100" y="210" text-anchor="middle">User</text>
+  <text class="sw" x="100" y="230" text-anchor="middle">request</text>
+
+  <rect x="210" y="170" width="180" height="84" rx="12" fill="#ddf4ff" stroke="#0969da" stroke-width="1.8"/>
+  <text class="h" x="300" y="203" text-anchor="middle">Prompt</text>
+  <text class="s mono" x="300" y="222" text-anchor="middle">*.prompt.md</text>
+  <text class="s" x="300" y="240" text-anchor="middle">what the user wants</text>
+
+  <rect x="430" y="170" width="180" height="84" rx="12" fill="#b6e3ff" stroke="#0550ae" stroke-width="1.8"/>
+  <text class="h" x="520" y="203" text-anchor="middle">Agent</text>
+  <text class="s mono" x="520" y="222" text-anchor="middle">*.agent.md</text>
+  <text class="s" x="520" y="240" text-anchor="middle">how it should run</text>
+
+  <rect x="650" y="60" width="210" height="76" rx="12" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.8"/>
+  <text class="h" x="755" y="90" text-anchor="middle">Instructions</text>
+  <text class="s mono" x="755" y="109" text-anchor="middle">*.instructions.md</text>
+  <text class="s" x="755" y="126" text-anchor="middle">glob-applied · passive rules</text>
+
+  <rect x="650" y="174" width="210" height="76" rx="12" fill="#fff8c5" stroke="#9a6700" stroke-width="1.8"/>
+  <text class="h" x="755" y="204" text-anchor="middle">Skills</text>
+  <text class="s mono" x="755" y="223" text-anchor="middle">SKILL.md</text>
+  <text class="s" x="755" y="240" text-anchor="middle">explicit call · active execution</text>
+
+  <rect x="650" y="288" width="210" height="76" rx="12" fill="#fbefff" stroke="#8250df" stroke-width="1.8"/>
+  <text class="h" x="755" y="318" text-anchor="middle">Subagents</text>
+  <text class="s mono" x="755" y="337" text-anchor="middle">subagents/*.agent.md</text>
+  <text class="s" x="755" y="354" text-anchor="middle">27 · narrow delegated work</text>
+
+  <rect x="900" y="170" width="170" height="84" rx="12" fill="#ddf4ff" stroke="#0969da" stroke-width="1.8"/>
+  <text class="h" x="985" y="203" text-anchor="middle">Result</text>
+  <text class="s" x="985" y="223" text-anchor="middle">source changes +</text>
+  <text class="s mono" x="985" y="241" text-anchor="middle">.copilot-tracking/</text>
+</svg>

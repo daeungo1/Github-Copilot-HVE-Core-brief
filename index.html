@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HVE-Core Quick Overview</title>
-<meta name="description" content="microsoft/hve-core 구조를 빠르게 훑는 Quick Overview 슬라이드 덱">
+<meta name="description" content="microsoft/hve-core structural brief for a quick session, in Korean and English">
 <script>
   (() => {
     const param = new URLSearchParams(window.location.search).get("scoutTheme");
@@ -69,6 +69,10 @@ html[data-theme="dark"] {
   --cp-highlight: rgba(56, 139, 253, 0.15);
 }
 
+/* Language switching: only the active language stays in flow.
+   !important keeps this ahead of higher-specificity rules such as .show-notes. */
+html[data-lang="ko"] .en, html[data-lang="en"] .ko { display: none !important; }
+
 * { box-sizing: border-box; }
 
 html, body { height: 100%; }
@@ -116,7 +120,7 @@ a { color: var(--cp-link); }
 
 .brand {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: .2px;
   white-space: nowrap;
   overflow: hidden;
@@ -158,6 +162,36 @@ button.ctl {
 button.ctl:hover { border-color: var(--cp-border-strong); background: var(--cp-surface-soft); }
 
 button.ctl.on { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
+
+.langsw {
+  display: flex;
+  flex: 0 0 auto;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  overflow: hidden;
+  background: var(--cp-surface);
+}
+
+.langsw button {
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 4px 11px;
+  border: none;
+  background: none;
+  color: var(--cp-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.langsw button + button { border-left: 1px solid var(--cp-border); }
+.langsw button:hover { background: var(--cp-surface-soft); color: var(--cp-text); }
+html[data-lang="ko"] .langsw button[data-set="ko"],
+html[data-lang="en"] .langsw button[data-set="en"] {
+  background: var(--cp-accent);
+  color: var(--cp-accent-fg);
+  font-weight: 700;
+}
 
 .progress {
   position: fixed;
@@ -474,7 +508,7 @@ kbd {
 
 @media (max-width: 900px) {
   .slide { padding: 20px 22px 26px; }
-  .split, .split.wide-left, .g4, .g3 { grid-template-columns: 1fr; }
+  .split, .split.wide-left, .split.figure-right, .g4, .g3 { grid-template-columns: 1fr; }
   .g2 { grid-template-columns: 1fr; }
   .vs { grid-template-columns: 1fr; }
   .vs .mid { text-align: center; }
@@ -500,264 +534,354 @@ kbd {
 <body>
 
 <header class="topbar">
-  <div class="brand">HVE-<span>Core</span> 브리핑 for Github Tech Promotion</div>
+  <div class="brand">HVE-<span>Core</span> <span class="ko">브리핑 for Github Tech Promotion</span><span class="en">Brief for GitHub Tech Promotion</span></div>
   <div class="spacer"></div>
-  <button class="ctl" id="notesBtn" title="스피커 노트 토글 (N)">노트</button>
-  <button class="ctl" id="tocBtn" title="목차 (O)">목차</button>
-  <button class="ctl" id="themeBtn" title="라이트/다크 전환">테마</button>
-  <div class="chip"><span id="cur">1</span> / <span id="tot">17</span></div>
+  <button class="ctl" id="notesBtn" title="Speaker notes (N)"><span class="ko">노트</span><span class="en">Notes</span></button>
+  <button class="ctl" id="tocBtn" title="Contents (O)"><span class="ko">목차</span><span class="en">Contents</span></button>
+  <button class="ctl" id="themeBtn" title="Light / dark"><span class="ko">테마</span><span class="en">Theme</span></button>
+  <div class="langsw" role="group" aria-label="Language">
+    <button data-set="ko" lang="ko">한국어</button>
+    <button data-set="en" lang="en">English</button>
+  </div>
+  <div class="chip"><span id="cur">1</span> / <span id="tot">18</span></div>
 </header>
 
-<nav class="rail" id="rail" aria-label="섹션 진행 현황"></nav>
+<nav class="rail" id="rail" aria-label="Section progress"></nav>
 
 <main class="deck" id="deck">
 
-<section class="slide title-slide" data-ch="0">
+<section class="slide title-slide" data-ch="0" data-t-ko="HVE Core" data-t-en="HVE Core">
   <div class="badge">Quick Overview</div>
   <div class="title-rule"></div>
   <h1>HVE Core</h1>
-  <p class="sub">GitHub Copilot을 <strong>반복 가능하고 표준에 맞는</strong> 방식으로 쓰기 위한<br>에이전틱 SDLC 프레임워크 구조 브리핑</p>
+  <p class="sub ko">GitHub Copilot을 <strong>반복 가능하고 표준에 맞는</strong> 방식으로 쓰기 위한<br>에이전틱 SDLC 프레임워크 구조 브리핑</p>
+  <p class="sub en">A structural brief on the agentic SDLC framework that makes GitHub Copilot work<br><strong>repeatable and standards-aligned</strong></p>
   <div class="title-meta">
-    <span class="chip">에이전트 58</span>
-    <span class="chip">프롬프트 49</span>
-    <span class="chip">인스트럭션 64</span>
-    <span class="chip">스킬 75</span>
-    <span class="chip">워크플로 70</span>
+    <span class="chip"><span class="ko">에이전트</span><span class="en">Agents</span> 58</span>
+    <span class="chip"><span class="ko">프롬프트</span><span class="en">Prompts</span> 49</span>
+    <span class="chip"><span class="ko">인스트럭션</span><span class="en">Instructions</span> 64</span>
+    <span class="chip"><span class="ko">스킬</span><span class="en">Skills</span> 75</span>
+    <span class="chip"><span class="ko">워크플로</span><span class="en">Workflows</span> 70</span>
   </div>
-  <p class="lede" style="margin-top:26px">
-    <kbd>→</kbd> 다음 · <kbd>←</kbd> 이전 · <kbd>O</kbd> 목차 · <kbd>N</kbd> 노트 · <kbd>F</kbd> 전체화면
+  <p class="lede ko" style="margin-top:26px">
+    <kbd>→</kbd> 다음 · <kbd>←</kbd> 이전 · <kbd>O</kbd> 목차 · <kbd>N</kbd> 노트 · <kbd>L</kbd> 언어 · <kbd>F</kbd> 전체화면
   </p>
-  <div class="notes"><b>0:00~0:30</b> 오늘 15분 동안 다룰 것: HVE Core가 무엇이고, 어떤 구조로 되어 있고, 실제로 어떻게 일하는 방식을 바꾸는지. 원본은 microsoft/hve-core 공개 저장소.</div>
+  <p class="lede en" style="margin-top:26px">
+    <kbd>→</kbd> Next · <kbd>←</kbd> Back · <kbd>O</kbd> Contents · <kbd>N</kbd> Notes · <kbd>L</kbd> Language · <kbd>F</kbd> Fullscreen
+  </p>
+  <div class="notes ko"><b>0:00~0:30</b> 오늘 다룰 것: HVE Core가 무엇이고, 어떤 구조로 되어 있고, 실제로 어떻게 일하는 방식을 바꾸는지. 원본은 microsoft/hve-core 공개 저장소.</div>
+  <div class="notes en"><b>0:00-0:30</b> What we cover: what HVE Core is, how it is structured, and how it changes the way you work. The source is the public microsoft/hve-core repository.</div>
 </section>
 
-<!-- 2 -->
-<section class="slide" data-ch="0">
-  <div class="kicker">Agenda</div>  <h2>오늘 다룰 7개 구간</h2>
-  <p class="lede">상단 진행 바가 현재 위치를 계속 표시합니다. 구간 이름을 클릭하면 바로 이동합니다.</p>
+<section class="slide" data-ch="0" data-t-ko="오늘 다룰 7개 구간" data-t-en="Seven sections">
+  <div class="kicker">Agenda</div>
+  <h2 class="ko">오늘 다룰 7개 구간</h2>
+  <h2 class="en">Seven sections we will cover</h2>
+  <p class="lede ko">상단 진행 바가 현재 위치를 계속 표시합니다. 구간 이름을 클릭하면 바로 이동합니다.</p>
+  <p class="lede en">The rail at the top always shows where you are. Click any section name to jump there.</p>
   <div class="body">
     <div class="grid g4">
-      <div class="card"><span class="badge">1</span><h3 style="margin-top:8px">문제</h3><p>AI가 왜 "그럴듯한 코드"를 만드는가</p></div>
-      <div class="card"><span class="badge">2</span><h3 style="margin-top:8px">구조</h3><p>HVE Core의 정의와 저장소 지도</p></div>
-      <div class="card"><span class="badge">3</span><h3 style="margin-top:8px">아티팩트</h3><p>4계층 모델과 AI-DLC 9단계</p></div>
-      <div class="card"><span class="badge">4</span><h3 style="margin-top:8px">RPI</h3><p>핵심 방법론과 추적 산출물</p></div>
+      <div class="card"><span class="badge">1</span><h3><span class="ko">문제</span><span class="en">Problem</span></h3><p><span class="ko">AI가 왜 "그럴듯한 코드"를 만드는가</span><span class="en">Why AI optimizes for plausible code</span></p></div>
+      <div class="card"><span class="badge">2</span><h3><span class="ko">구조</span><span class="en">Structure</span></h3><p><span class="ko">HVE Core의 정의와 저장소 지도</span><span class="en">What HVE Core is, and the repository map</span></p></div>
+      <div class="card"><span class="badge">3</span><h3><span class="ko">아티팩트</span><span class="en">Artifacts</span></h3><p><span class="ko">4계층 모델과 AI-DLC 9단계</span><span class="en">The four-tier model and the nine-stage AI-DLC</span></p></div>
+      <div class="card"><span class="badge">4</span><h3>RPI</h3><p><span class="ko">핵심 방법론과 추적 산출물</span><span class="en">The core method and its durable artifacts</span></p></div>
     </div>
     <div class="grid g4" style="margin-top:14px">
-      <div class="card"><span class="badge">5</span><h3 style="margin-top:8px">범위</h3><p>도메인 패키지와 Design Thinking</p></div>
-      <div class="card"><span class="badge">6</span><h3 style="margin-top:8px">운영</h3><p>품질 게이트, 배포 채널, 시작하기</p></div>
-      <div class="card"><span class="badge">7</span><h3 style="margin-top:8px">정리</h3><p>가져갈 것 세 가지와 Q &amp; A</p></div>
-      <div class="card accent"><h3>18장 · 약 15분</h3><p style="color:var(--cp-text)">구간당 2분 내외로 진행합니다.</p></div>
+      <div class="card"><span class="badge">5</span><h3><span class="ko">범위</span><span class="en">Scope</span></h3><p><span class="ko">도메인 패키지와 Design Thinking</span><span class="en">Domain packages and Design Thinking</span></p></div>
+      <div class="card"><span class="badge">6</span><h3><span class="ko">운영</span><span class="en">Operations</span></h3><p><span class="ko">품질 게이트, 배포 채널, 시작하기</span><span class="en">Quality gates, distribution, getting started</span></p></div>
+      <div class="card"><span class="badge">7</span><h3><span class="ko">정리</span><span class="en">Wrap-up</span></h3><p><span class="ko">가져갈 것 세 가지와 Q &amp; A</span><span class="en">Three takeaways and Q &amp; A</span></p></div>
+      <div class="card accent"><h3><span class="ko">18장 · 약 15분</span><span class="en">18 slides · about 15 min</span></h3><p style="color:var(--cp-text)"><span class="ko">구간당 2분 내외로 진행합니다.</span><span class="en">Roughly two minutes per section.</span></p></div>
     </div>
   </div>
-  <div class="notes"><b>0:30~1:00</b> 전체 지도를 먼저 보여주고 시작. "RPI가 오늘의 핵심"이라고 미리 예고해 두면 집중도가 올라감.</div>
+  <div class="notes ko"><b>0:30~1:00</b> 전체 지도를 먼저 보여주고 시작. "RPI가 오늘의 핵심"이라고 미리 예고해 두면 집중도가 올라감.</div>
+  <div class="notes en"><b>0:30-1:00</b> Show the whole map before diving in. Flagging RPI as the centerpiece up front keeps attention high.</div>
 </section>
 
-<section class="slide" data-ch="1">
-  <div class="kicker">문제 정의</div>
-  <h2>AI는 "그럴듯한 코드"를 최적화한다</h2>
-  <p class="lede">간단한 작업은 잘합니다. 12개 파일과 3개 서비스에 걸친 변경을 요청하면, 컴파일도 되고 그럴듯해 보이지만 기존 코드를 깨뜨리는 결과가 나옵니다.</p>
+<section class="slide" data-ch="1" data-t-ko="AI는 그럴듯한 코드를 최적화한다" data-t-en="AI optimizes for plausible code">
+  <div class="kicker"><span class="ko">문제 정의</span><span class="en">The problem</span></div>
+  <h2 class="ko">AI는 "그럴듯한 코드"를 최적화한다</h2>
+  <h2 class="en">AI optimizes for plausible code</h2>
+  <p class="lede ko">간단한 작업은 잘합니다. 12개 파일과 3개 서비스에 걸친 변경을 요청하면, 컴파일도 되고 그럴듯해 보이지만 기존 코드를 깨뜨리는 결과가 나옵니다.</p>
+  <p class="lede en">Simple tasks go fine. Ask for a change spanning twelve files and three services, and you get something that compiles, looks right, and breaks everything it touches.</p>
   <div class="body">
     <div class="grid g2">
       <div class="card">
-        <h3>전형적인 실패 시퀀스</h3>
-        <ul class="clean" style="margin-top:10px">
+        <h3><span class="ko">전형적인 실패 시퀀스</span><span class="en">The familiar failure</span></h3>
+        <ul class="clean ko" style="margin-top:10px">
           <li>"Azure IoT용 Terraform 모듈 만들어줘"</li>
           <li>AI가 즉시 2000줄을 생성</li>
           <li>의존성 누락, 변수명 불일치, 폐기된 패턴, 기존 인프라 파손</li>
         </ul>
+        <ul class="clean en" style="margin-top:10px">
+          <li>"Build me a Terraform module for Azure IoT"</li>
+          <li>AI immediately generates 2,000 lines</li>
+          <li>Missing dependencies, wrong variable names, outdated patterns, broken infrastructure</li>
+        </ul>
       </div>
       <div class="card accent">
-        <h3>근본 원인</h3>
-        <p style="margin-bottom:10px">AI는 <strong>조사하는 것</strong>과 <strong>구현하는 것</strong>을 구분하지 못합니다. 코드를 요청하면 코드를 씁니다. 변수 명명 규칙이 기존 모듈과 맞는지 멈춰서 확인하지 않습니다.</p>
+        <h3><span class="ko">근본 원인</span><span class="en">Root cause</span></h3>
+        <p class="ko" style="margin-bottom:10px">AI는 <strong>조사하는 것</strong>과 <strong>구현하는 것</strong>을 구분하지 못합니다. 코드를 요청하면 코드를 씁니다. 변수 명명 규칙이 기존 모듈과 맞는지 멈춰서 확인하지 않습니다.</p>
+        <p class="en" style="margin-bottom:10px">AI cannot tell <strong>investigating</strong> from <strong>implementing</strong>. Ask for code and it writes code. It never stops to check whether the naming convention it picked matches your existing modules.</p>
         <p class="quote" style="color:var(--cp-text)">"AI writes first and thinks never."</p>
       </div>
     </div>
-    <div class="callout" style="margin-top:16px">
+    <div class="callout ko" style="margin-top:16px">
       해결책은 AI를 더 똑똑하게 만드는 것이 아니라, <strong>특정 시점에 특정 행동을 못 하게 막는 것</strong>입니다. 제약이 목표를 바꿉니다.
     </div>
+    <div class="callout en" style="margin-top:16px">
+      The fix is not a smarter AI. It is <strong>preventing AI from doing certain things at certain times</strong>. The constraint changes the goal.
+    </div>
   </div>
-  <div class="notes"><b>0:30~2:00</b> 청중 공감 유도 구간. "AI가 만든 코드 디버깅하느라 몇 시간 쓴 적 있나요?" 질문으로 시작하면 좋음. 핵심 문장은 마지막 콜아웃.</div>
+  <div class="notes ko"><b>0:30~2:00</b> 청중 공감 유도 구간. "AI가 만든 코드 디버깅하느라 몇 시간 쓴 적 있나요?" 질문으로 시작하면 좋음. 핵심 문장은 마지막 콜아웃.</div>
+  <div class="notes en"><b>0:30-2:00</b> Build empathy first. Opening with "who has burned hours debugging AI-written code?" works well. The closing callout is the key line.</div>
 </section>
 
-<section class="slide" data-ch="2">
-  <div class="kicker">정의</div>
-  <h2>HVE Core는 코드 라이브러리가 아니다</h2>
-  <p class="lede">Hypervelocity Engineering Core. 특화된 에이전트, 재사용 가능한 프롬프트, 자동 적용되는 코딩 표준, 검증된 스킬을 <strong>하나의 워크플로 시스템</strong>으로 묶은 AI 워크플로 자산 집합입니다.</p>
+<section class="slide" data-ch="2" data-t-ko="HVE Core는 코드 라이브러리가 아니다" data-t-en="HVE Core is not a code library">
+  <div class="kicker"><span class="ko">정의</span><span class="en">Definition</span></div>
+  <h2 class="ko">HVE Core는 코드 라이브러리가 아니다</h2>
+  <h2 class="en">HVE Core is not a code library</h2>
+  <p class="lede ko">Hypervelocity Engineering Core. 특화된 에이전트, 재사용 가능한 프롬프트, 자동 적용되는 코딩 표준, 검증된 스킬을 <strong>하나의 워크플로 시스템</strong>으로 묶은 AI 워크플로 자산 집합입니다.</p>
+  <p class="lede en">Hypervelocity Engineering Core. A set of AI workflow assets that binds specialized agents, reusable prompts, auto-applied coding standards, and validated skills into <strong>one workflow system</strong>.</p>
   <div class="body split wide-left">
     <figure>
-      <img src="assets/01-overview.svg" alt="HVE Core 허브에서 AI 아티팩트, 방법론, 품질 게이트, 배포 네 갈래로 분기하는 구조도">
+      <img src="assets/01-overview.svg" data-src="assets/01-overview.svg" alt="HVE Core hub branching into artifacts, methods, quality gates, and distribution">
     </figure>
     <div>
       <div class="grid g2">
-        <div class="card stat"><b>58</b><span>에이전트<br>(서브에이전트 27 포함)</span></div>
-        <div class="card stat"><b>49</b><span>프롬프트<br>슬래시 커맨드</span></div>
-        <div class="card stat"><b>64</b><span>인스트럭션<br>자동 적용 표준</span></div>
-        <div class="card stat"><b>75</b><span>스킬<br>실행 가능 지식</span></div>
+        <div class="card stat"><b>58</b><span><span class="ko">에이전트<br>(서브에이전트 27 포함)</span><span class="en">Agents<br>(27 subagents included)</span></span></div>
+        <div class="card stat"><b>49</b><span><span class="ko">프롬프트<br>슬래시 커맨드</span><span class="en">Prompts<br>slash commands</span></span></div>
+        <div class="card stat"><b>64</b><span><span class="ko">인스트럭션<br>자동 적용 표준</span><span class="en">Instructions<br>auto-applied standards</span></span></div>
+        <div class="card stat"><b>75</b><span><span class="ko">스킬<br>실행 가능 지식</span><span class="en">Skills<br>executable knowledge</span></span></div>
       </div>
-      <div class="callout" style="margin-top:14px; font-size:13px">
+      <div class="callout ko" style="margin-top:14px; font-size:13px">
         빠르게 변하는 실험적 프레임워크입니다. 프로덕션 의존성보다 <strong>패턴과 학습의 원천</strong>으로 다루라는 것이 저장소 자체의 권고입니다.
+      </div>
+      <div class="callout en" style="margin-top:14px; font-size:13px">
+        This is a fast-moving, experimental framework. The repository itself advises treating it as a <strong>source of patterns and learning</strong> rather than a production dependency.
       </div>
     </div>
   </div>
-  <div class="notes"><b>2:00~3:15</b> 숫자를 하나씩 읽지 말 것. "네 가지 종류의 자산이 있고, 규모가 이 정도"로만 짚고 넘어감. 마지막 경고 문구는 반드시 언급 (기대치 관리).</div>
+  <div class="notes ko"><b>2:00~3:15</b> 숫자를 하나씩 읽지 말 것. "네 가지 종류의 자산이 있고, 규모가 이 정도"로만 짚고 넘어감. 마지막 경고 문구는 반드시 언급 (기대치 관리).</div>
+  <div class="notes en"><b>2:00-3:15</b> Do not read the numbers one by one. Just land "four kinds of assets, roughly this scale." Always mention the caution box to manage expectations.</div>
 </section>
 
-<section class="slide" data-ch="2">
-  <div class="kicker">저장소 지도</div>
-  <h2>무엇이 어디에 있는가</h2>
-  <p class="lede">모든 AI 자산은 <code>.github/</code> 아래에, 검증 엔진은 <code>scripts/</code>에, 문서는 <code>docs/</code>에 있습니다.</p>
+<section class="slide" data-ch="2" data-t-ko="무엇이 어디에 있는가" data-t-en="Where everything lives">
+  <div class="kicker"><span class="ko">저장소 지도</span><span class="en">Repository map</span></div>
+  <h2 class="ko">무엇이 어디에 있는가</h2>
+  <h2 class="en">Where everything lives</h2>
+  <p class="lede ko">모든 AI 자산은 <code>.github/</code> 아래에, 검증 엔진은 <code>scripts/</code>에, 문서는 <code>docs/</code>에 있습니다.</p>
+  <p class="lede en">Every AI asset sits under <code>.github/</code>, the validation engine under <code>scripts/</code>, and the documentation under <code>docs/</code>.</p>
   <div class="body">
     <figure>
-      <img src="assets/02-repo-structure.svg" alt="저장소 루트가 .github, docs, scripts, evals, extension, 루트 메타 파일로 나뉘는 트리 구조도" style="max-height:60vh">
+      <img src="assets/02-repo-structure.svg" data-src="assets/02-repo-structure.svg" alt="Repository tree split into .github, docs, scripts, evals, extension, and root metadata" style="max-height:60vh">
     </figure>
   </div>
-  <div class="notes"><b>3:15~4:00</b> 빠르게 지나갈 슬라이드. ".github 안에 네 종류 자산이 있다"와 "scripts에 181개 검증 스크립트가 있다" 두 가지만 강조.</div>
+  <div class="notes ko"><b>3:15~4:00</b> 빠르게 지나갈 슬라이드. ".github 안에 네 종류 자산이 있다"와 "scripts에 181개 검증 스크립트가 있다" 두 가지만 강조.</div>
+  <div class="notes en"><b>3:15-4:00</b> Move fast here. Land only two points: four asset kinds under .github, and 181 validation scripts under scripts.</div>
 </section>
 
-<section class="slide" data-ch="3">
-  <div class="kicker">핵심 개념 1</div>
-  <h2>AI 아티팩트 4계층 위임 모델</h2>
-  <p class="lede">사용자 요청은 프롬프트에서 출발해 에이전트로 위임되고, 에이전트가 인스트럭션(표준)과 스킬(실행 능력)을 끌어옵니다.</p>
+<section class="slide" data-ch="3" data-t-ko="AI 아티팩트 4계층 위임 모델" data-t-en="The four-tier delegation model">
+  <div class="kicker"><span class="ko">핵심 개념 1</span><span class="en">Key concept 1</span></div>
+  <h2 class="ko">AI 아티팩트 4계층 위임 모델</h2>
+  <h2 class="en">The four-tier artifact delegation model</h2>
+  <p class="lede ko">사용자 요청은 프롬프트에서 출발해 에이전트로 위임되고, 에이전트가 인스트럭션(표준)과 스킬(실행 능력)을 끌어옵니다.</p>
+  <p class="lede en">A request starts at a prompt, is delegated to an agent, and the agent pulls in instructions (standards) and skills (executable capability).</p>
   <div class="body">
     <figure>
-      <img src="assets/03-artifact-layers.svg" alt="사용자 요청이 프롬프트와 에이전트를 거쳐 인스트럭션, 스킬, 서브에이전트로 위임되는 흐름도" style="max-height:32vh">
+      <img src="assets/03-artifact-layers.svg" data-src="assets/03-artifact-layers.svg" alt="Request flowing from prompt to agent, then to instructions, skills, and subagents" style="max-height:32vh">
     </figure>
     <table style="margin-top:14px">
-      <thead><tr><th>계층</th><th>파일</th><th>답하는 질문</th><th>활성화</th></tr></thead>
+      <thead><tr>
+        <th><span class="ko">계층</span><span class="en">Tier</span></th>
+        <th><span class="ko">파일</span><span class="en">File</span></th>
+        <th><span class="ko">답하는 질문</span><span class="en">Question it answers</span></th>
+        <th><span class="ko">활성화</span><span class="en">Activation</span></th>
+      </tr></thead>
       <tbody>
-        <tr><td><strong>Prompt</strong></td><td><code>*.prompt.md</code></td><td>사용자가 무엇을 하려는가</td><td>슬래시 커맨드</td></tr>
-        <tr><td><strong>Agent</strong></td><td><code>*.agent.md</code></td><td>이 작업을 어떻게 실행할 것인가</td><td>에이전트 선택기</td></tr>
-        <tr><td><strong>Instructions</strong></td><td><code>*.instructions.md</code></td><td>어떤 표준이 적용되는가</td><td><code>applyTo:</code> glob 자동</td></tr>
-        <tr><td><strong>Skill</strong></td><td><code>SKILL.md</code></td><td>어떤 특수 능력이 필요한가</td><td>명시적 호출</td></tr>
+        <tr><td><strong>Prompt</strong></td><td><code>*.prompt.md</code></td><td><span class="ko">사용자가 무엇을 하려는가</span><span class="en">What does the user want?</span></td><td><span class="ko">슬래시 커맨드</span><span class="en">Slash command</span></td></tr>
+        <tr><td><strong>Agent</strong></td><td><code>*.agent.md</code></td><td><span class="ko">이 작업을 어떻게 실행할 것인가</span><span class="en">How should this run?</span></td><td><span class="ko">에이전트 선택기</span><span class="en">Agent picker</span></td></tr>
+        <tr><td><strong>Instructions</strong></td><td><code>*.instructions.md</code></td><td><span class="ko">어떤 표준이 적용되는가</span><span class="en">Which standards apply?</span></td><td><code>applyTo:</code> glob</td></tr>
+        <tr><td><strong>Skill</strong></td><td><code>SKILL.md</code></td><td><span class="ko">어떤 특수 능력이 필요한가</span><span class="en">Which capability is needed?</span></td><td><span class="ko">명시적 호출</span><span class="en">Explicit invocation</span></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="notes"><b>4:00~5:15</b> 이 슬라이드가 전체에서 가장 중요. 각 계층이 답하는 "질문" 컬럼을 읽어주면 이해가 빠름.</div>
+  <div class="notes ko"><b>4:00~5:15</b> 이 슬라이드가 전체에서 가장 중요. 각 계층이 답하는 "질문" 컬럼을 읽어주면 이해가 빠름.</div>
+  <div class="notes en"><b>4:00-5:15</b> The most important slide of the deck. Reading the "question it answers" column makes the model click quickly.</div>
 </section>
 
-<section class="slide" data-ch="3">
-  <div class="kicker">핵심 개념 1 보충</div>
-  <h2>가장 흔한 오해: 인스트럭션 vs 스킬</h2>
-  <p class="lede">둘 다 마크다운 파일이지만 성격이 정반대입니다. 이 구분을 놓치면 자산을 잘못된 계층에 만들게 됩니다.</p>
+<section class="slide" data-ch="3" data-t-ko="인스트럭션 vs 스킬" data-t-en="Instructions vs skills">
+  <div class="kicker"><span class="ko">핵심 개념 1 보충</span><span class="en">Key concept 1, continued</span></div>
+  <h2 class="ko">가장 흔한 오해: 인스트럭션 vs 스킬</h2>
+  <h2 class="en">The common confusion: instructions vs skills</h2>
+  <p class="lede ko">둘 다 마크다운 파일이지만 성격이 정반대입니다. 이 구분을 놓치면 자산을 잘못된 계층에 만들게 됩니다.</p>
+  <p class="lede en">Both are markdown files, but they are opposites. Miss the distinction and you build assets at the wrong tier.</p>
   <div class="body">
     <div class="vs">
       <div class="card">
-        <span class="badge soft">수동적</span>
+        <span class="badge soft"><span class="ko">수동적</span><span class="en">Passive</span></span>
         <h3 style="margin-top:8px">Instructions</h3>
-        <ul class="clean" style="margin-top:10px">
+        <ul class="clean ko" style="margin-top:10px">
           <li>표준과 규칙을 <strong>제공</strong></li>
           <li>파일 경로 glob 매칭으로 <strong>자동 적용</strong></li>
           <li>여러 개가 동시에 겹쳐서 적용됨</li>
           <li>결과물은 Copilot을 위한 <strong>가이던스</strong></li>
         </ul>
+        <ul class="clean en" style="margin-top:10px">
+          <li><strong>Provide</strong> standards and rules</li>
+          <li><strong>Apply automatically</strong> via path glob matching</li>
+          <li>Stack when several patterns match</li>
+          <li>Output is <strong>guidance</strong> for Copilot</li>
+        </ul>
       </div>
       <div class="mid">vs</div>
       <div class="card">
-        <span class="badge">능동적</span>
+        <span class="badge"><span class="ko">능동적</span><span class="en">Active</span></span>
         <h3 style="margin-top:8px">Skills</h3>
-        <ul class="clean" style="margin-top:10px">
+        <ul class="clean ko" style="margin-top:10px">
           <li>실제 <strong>행동</strong>과 스크립트를 제공</li>
           <li>필요할 때만 <strong>명시적으로 로드</strong></li>
           <li>자체 완결형 패키지 (스크립트·참조·자산)</li>
           <li>결과물은 <strong>실행된 작업</strong></li>
         </ul>
+        <ul class="clean en" style="margin-top:10px">
+          <li>Provide real <strong>actions</strong> and scripts</li>
+          <li><strong>Loaded explicitly</strong>, only when needed</li>
+          <li>Self-contained packages (scripts, references, assets)</li>
+          <li>Output is <strong>executed work</strong></li>
+        </ul>
       </div>
     </div>
     <div class="grid g2" style="margin-top:16px">
       <div class="card">
-        <h3>서브에이전트가 따로 있는 이유</h3>
-        <p>27개 서브에이전트는 부모의 컨텍스트를 오염시키지 않도록 <strong>별도 세션</strong>에서 실행되고 결과만 돌려줍니다. 코드 리뷰는 이 방식으로 7개 관점을 병렬 실행합니다.</p>
+        <h3><span class="ko">서브에이전트가 따로 있는 이유</span><span class="en">Why subagents exist</span></h3>
+        <p class="ko">27개 서브에이전트는 부모의 컨텍스트를 오염시키지 않도록 <strong>별도 세션</strong>에서 실행되고 결과만 돌려줍니다. 코드 리뷰는 이 방식으로 7개 관점을 병렬 실행합니다.</p>
+        <p class="en">The 27 subagents run in a <strong>separate session</strong> so they never pollute the parent context, returning only results. Code review uses this to run seven perspectives in parallel.</p>
       </div>
       <div class="card">
-        <h3>배포 대상 구분</h3>
-        <p><code>.github/instructions/</code> 최상위 파일은 <strong>저장소 전용</strong>이라 배포되지 않습니다. <code>hve-core/</code>, <code>security/</code> 같은 패키지 하위 폴더에 있어야 배포됩니다.</p>
+        <h3><span class="ko">배포 대상 구분</span><span class="en">What actually ships</span></h3>
+        <p class="ko">
+          <code>.github/instructions/</code> 최상위 파일은 <strong>저장소 전용</strong>이라 배포되지 않습니다. <code>hve-core/</code>, <code>security/</code> 같은 패키지 하위 폴더에 있어야 배포됩니다.</p>
+        <p class="en">Files at the root of <code>.github/instructions/</code> are <strong>repo-specific</strong> and never distributed. Only files inside package subfolders such as <code>hve-core/</code> or <code>security/</code> ship.</p>
       </div>
     </div>
   </div>
-  <div class="notes"><b>5:15~6:15</b> "규칙 vs 행동", "자동 vs 명시적" 두 축만 기억하게 할 것. 질문이 자주 나오는 지점.</div>
+  <div class="notes ko"><b>5:15~6:15</b> "규칙 vs 행동", "자동 vs 명시적" 두 축만 기억하게 할 것. 질문이 자주 나오는 지점.</div>
+  <div class="notes en"><b>5:15-6:15</b> Leave them with two axes only: rules vs actions, automatic vs explicit. Questions cluster here.</div>
 </section>
 
-<section class="slide" data-ch="3">
-  <div class="kicker">핵심 개념 2</div>
-  <h2>AI-DLC: 9단계 프로젝트 라이프사이클</h2>
-  <p class="lede">설정부터 운영까지 각 단계에 담당 에이전트와 스킬이 매핑되어 있습니다. 리뷰·배포·운영은 구현으로 되돌아오는 피드백 루프를 가집니다.</p>
+<section class="slide" data-ch="3" data-t-ko="AI-DLC 9단계 라이프사이클" data-t-en="The nine-stage AI-DLC">
+  <div class="kicker"><span class="ko">핵심 개념 2</span><span class="en">Key concept 2</span></div>
+  <h2 class="ko">AI-DLC: 9단계 프로젝트 라이프사이클</h2>
+  <h2 class="en">AI-DLC: a nine-stage project lifecycle</h2>
+  <p class="lede ko">설정부터 운영까지 각 단계에 담당 에이전트와 스킬이 매핑되어 있습니다. 리뷰·배포·운영은 구현으로 되돌아오는 피드백 루프를 가집니다.</p>
+  <p class="lede en">Every stage from setup to operations maps to specific agents and skills. Review, delivery, and operations all loop back into implementation.</p>
   <div class="body">
     <figure>
-      <img src="assets/04-lifecycle.svg" alt="설정부터 운영까지 9단계가 순차 진행되고 리뷰, 배포, 운영에서 구현으로 되돌아가는 라이프사이클 흐름도" style="max-height:46vh">
+      <img src="assets/04-lifecycle.svg" data-src="assets/04-lifecycle.svg" alt="Nine stages from setup to operations with feedback loops back into implementation" style="max-height:46vh">
     </figure>
-    <p class="lede" style="margin-top:12px">
+    <p class="lede ko" style="margin-top:12px">
       Design Thinking 9개 메서드는 <strong>3개의 종료 지점</strong>(문제 정의문 · 검증된 콘셉트 · 구현 스펙)에서 Stage 2로 합류합니다.
       역할별 진입 가이드는 엔지니어·테크리드·TPM·보안 아키텍트 등 10종이 준비되어 있습니다.
     </p>
+    <p class="lede en" style="margin-top:12px">
+      The nine Design Thinking methods feed into Stage 2 at <strong>three exit points</strong>: problem statement, validated concept, and implementation spec.
+      Ten role guides cover engineers, tech leads, TPMs, security architects, and more.
+    </p>
   </div>
-  <div class="notes"><b>6:15~7:15</b> 9단계를 다 읽지 말 것. "구현(6단계)이 가장 두껍고, 나머지는 그 앞뒤를 감싼다"는 구조만 전달. 피드백 루프 3개를 손으로 짚기.</div>
+  <div class="notes ko"><b>6:15~7:15</b> 9단계를 다 읽지 말 것. "구현(6단계)이 가장 두껍고, 나머지는 그 앞뒤를 감싼다"는 구조만 전달. 피드백 루프 3개를 손으로 짚기.</div>
+  <div class="notes en"><b>6:15-7:15</b> Do not read all nine. Convey only that implementation (stage 6) is the thickest and the rest wraps around it. Point at the three feedback loops.</div>
 </section>
 
-<section class="slide" data-ch="4">
-  <div class="kicker">핵심 개념 3</div>
-  <h2>RPI: 제약이 목표를 바꾼다</h2>
-  <p class="lede">Research, Plan, Implement, Review. 구현 단계의 실제 엔진이며 HVE Core에서 가장 널리 쓰이는 방법론입니다.</p>
+<section class="slide" data-ch="4" data-t-ko="RPI: 제약이 목표를 바꾼다" data-t-en="RPI: the constraint changes the goal">
+  <div class="kicker"><span class="ko">핵심 개념 3</span><span class="en">Key concept 3</span></div>
+  <h2 class="ko">RPI: 제약이 목표를 바꾼다</h2>
+  <h2 class="en">RPI: the constraint changes the goal</h2>
+  <p class="lede ko">Research, Plan, Implement, Review. 구현 단계의 실제 엔진이며 HVE Core에서 가장 널리 쓰이는 방법론입니다.</p>
+  <p class="lede en">Research, Plan, Implement, Review. The real engine behind the implementation stage and the most widely used method in HVE Core.</p>
   <div class="body">
     <div class="vs">
       <div class="card">
-        <span class="badge soft">RPI 없이</span>
-        <p style="margin-top:10px; font-size:14px">AI의 사고: <br><em>"이 변수명이 적당해 보이네. <code>prefix</code>를 쓰자."</em></p>
+        <span class="badge soft"><span class="ko">RPI 없이</span><span class="en">Without RPI</span></span>
+        <p class="ko" style="margin-top:10px; font-size:14px">AI의 사고: <br><em>"이 변수명이 적당해 보이네. <code>prefix</code>를 쓰자."</em></p>
+        <p class="en" style="margin-top:10px; font-size:14px">What the AI thinks: <br><em>"That variable name looks reasonable. I will use <code>prefix</code>."</em></p>
       </div>
       <div class="mid">→</div>
       <div class="card accent">
-        <span class="badge">RPI 적용</span>
-        <p style="margin-top:10px; font-size:14px; color:var(--cp-text)">리서치 증거: <br><em>"이 저장소의 기존 모듈 12개가 <code>prefix</code>가 아니라 <code>resource_prefix</code>를 쓴다. 확립된 패턴은 <code>variables.tf</code>에 있다."</em></p>
+        <span class="badge"><span class="ko">RPI 적용</span><span class="en">With RPI</span></span>
+        <p class="ko" style="margin-top:10px; font-size:14px; color:var(--cp-text)">리서치 증거: <br><em>"이 저장소의 기존 모듈 12개가 <code>prefix</code>가 아니라 <code>resource_prefix</code>를 쓴다. 확립된 패턴은 <code>variables.tf</code>에 있다."</em></p>
+        <p class="en" style="margin-top:10px; font-size:14px; color:var(--cp-text)">Research evidence: <br><em>"Twelve existing modules use <code>resource_prefix</code>, not <code>prefix</code>. The established pattern lives in <code>variables.tf</code>."</em></p>
       </div>
     </div>
     <div class="callout" style="margin-top:18px">
-      <p class="quote" style="margin:0">AI가 <strong>지금은 구현할 수 없다</strong>는 것을 알면, "그럴듯한 코드" 최적화를 멈추고 "검증된 사실" 최적화를 시작합니다.</p>
+      <p class="quote ko" style="margin:0">AI가 <strong>지금은 구현할 수 없다</strong>는 것을 알면, "그럴듯한 코드" 최적화를 멈추고 "검증된 사실" 최적화를 시작합니다.</p>
+      <p class="quote en" style="margin:0">When AI knows it <strong>cannot implement right now</strong>, it stops optimizing for plausible code and starts optimizing for verified truth.</p>
     </div>
     <div class="grid g3" style="margin-top:16px">
-      <div class="card"><h3>읽기 전용 리서치</h3><p>증거와 가정을 분리하고 출처 위치를 인용합니다. 코드를 쓰지 않습니다.</p></div>
-      <div class="card"><h3>독립 계획 비평</h3><p>구현 전에 Pass / Revise / Blocked 판정을 남깁니다.</p></div>
-      <div class="card"><h3>증거 기반 완료</h3><p>증거가 있어야만 체크박스가 켜집니다.</p></div>
+      <div class="card"><h3><span class="ko">읽기 전용 리서치</span><span class="en">Read-only research</span></h3><p><span class="ko">증거와 가정을 분리하고 출처 위치를 인용합니다. 코드를 쓰지 않습니다.</span><span class="en">Separates evidence from assumptions and cites source locations. Writes no code.</span></p></div>
+      <div class="card"><h3><span class="ko">독립 계획 비평</span><span class="en">Independent critique</span></h3><p><span class="ko">구현 전에 Pass / Revise / Blocked 판정을 남깁니다.</span><span class="en">Records a Pass, Revise, or Blocked verdict before implementation starts.</span></p></div>
+      <div class="card"><h3><span class="ko">증거 기반 완료</span><span class="en">Evidence-based completion</span></h3><p><span class="ko">증거가 있어야만 체크박스가 켜집니다.</span><span class="en">A checkbox flips only once evidence exists.</span></p></div>
     </div>
   </div>
-  <div class="notes"><b>7:15~8:30</b> 이 슬라이드가 발표의 클라이맥스. 좌우 비교를 천천히 읽어주고, 콜아웃 문장은 그대로 인용할 것.</div>
+  <div class="notes ko"><b>7:15~8:30</b> 이 슬라이드가 발표의 클라이맥스. 좌우 비교를 천천히 읽어주고, 콜아웃 문장은 그대로 인용할 것.</div>
+  <div class="notes en"><b>7:15-8:30</b> The climax of the talk. Read the two sides slowly and quote the callout verbatim.</div>
 </section>
 
-<section class="slide" data-ch="4">
-  <div class="kicker">RPI 흐름</div>
-  <h2>리서치는 기본값이 아니라 조건부다</h2>
-  <p class="lede">먼저 "증거가 충분한가"를 판단합니다. 충분하면 리서치를 건너뛰고, 공백이 입증될 때만 리서치를 켭니다.</p>
+<section class="slide" data-ch="4" data-t-ko="리서치는 조건부다" data-t-en="Research is conditional">
+  <div class="kicker"><span class="ko">RPI 흐름</span><span class="en">RPI flow</span></div>
+  <h2 class="ko">리서치는 기본값이 아니라 조건부다</h2>
+  <h2 class="en">Research is conditional, not the default</h2>
+  <p class="lede ko">먼저 "증거가 충분한가"를 판단합니다. 충분하면 리서치를 건너뛰고, 공백이 입증될 때만 리서치를 켭니다.</p>
+  <p class="lede en">First judge whether the evidence is adequate. If it is, skip research; turn it on only when a gap is demonstrated.</p>
   <div class="body split even">
     <figure>
-      <img src="assets/05-rpi.svg" alt="증거 충분성 판단 이후 리서치, 계획, 비평, 구현, 리뷰, 후속 조치로 이어지는 RPI 흐름도" style="max-height:55vh">
+      <img src="assets/05-rpi.svg" data-src="assets/05-rpi.svg" alt="Evidence gate leading into research, plan, critique, implement, review, and follow-up" style="max-height:55vh">
     </figure>
     <div>
       <div class="card">
-        <h3>3가지 진입 방법</h3>
-        <ul class="clean" style="margin-top:10px">
+        <h3><span class="ko">3가지 진입 방법</span><span class="en">Three ways in</span></h3>
+        <ul class="clean ko" style="margin-top:10px">
           <li><code>RPI Agent</code> 선택: 라이프사이클 전체를 감싸는 래퍼</li>
           <li><code>/rpi-quick</code>: 스킬 기반 전체 흐름</li>
           <li>개별 스킬: 다음 행동이 이미 명확할 때 최소 진입</li>
         </ul>
+        <ul class="clean en" style="margin-top:10px">
+          <li><code>RPI Agent</code>: a wrapper around the whole lifecycle</li>
+          <li><code>/rpi-quick</code>: the skill-based full flow</li>
+          <li>Individual skills: the smallest entry when the next move is clear</li>
+        </ul>
       </div>
       <div class="card" style="margin-top:14px">
-        <h3>Follow-up은 새 단계가 아니다</h3>
-        <p>결함은 구현으로, 결정 공백은 계획으로, 증거 공백은 리서치로, 잔여 작업은 별도 항목으로 <strong>라우팅</strong>할 뿐입니다.</p>
+        <h3><span class="ko">Follow-up은 새 단계가 아니다</span><span class="en">Follow-up is not a new phase</span></h3>
+        <p class="ko">결함은 구현으로, 결정 공백은 계획으로, 증거 공백은 리서치로, 잔여 작업은 별도 항목으로 <strong>라우팅</strong>할 뿐입니다.</p>
+        <p class="en">It only <strong>routes</strong>: defects to implementation, decision gaps to planning, evidence gaps to research, residual work to a separate item.</p>
       </div>
-      <div class="callout" style="margin-top:14px; font-size:13px">
+      <div class="callout ko" style="margin-top:14px; font-size:13px">
         실행 상태(Complete/Partial/Blocked)와 결과(Conformant/Defects found/Not accepted)를 <strong>분리</strong>합니다. 실행 완료가 수용을 뜻하지 않습니다.
+      </div>
+      <div class="callout en" style="margin-top:14px; font-size:13px">
+        Execution status (Complete/Partial/Blocked) stays <strong>separate</strong> from outcome (Conformant/Defects found/Not accepted). Finishing execution is not acceptance.
       </div>
     </div>
   </div>
-  <div class="notes"><b>8:30~9:45</b> 왼쪽 다이어그램의 다이아몬드(증거 판단)를 먼저 짚고, 오른쪽 아래 "실행 완료 ≠ 수용" 문장으로 마무리.</div>
+  <div class="notes ko"><b>8:30~9:45</b> 왼쪽 다이어그램의 다이아몬드(증거 판단)를 먼저 짚고, 오른쪽 아래 "실행 완료 ≠ 수용" 문장으로 마무리.</div>
+  <div class="notes en"><b>8:30-9:45</b> Point at the diamond (the evidence gate) first, then close on "execution complete is not acceptance."</div>
 </section>
 
-<section class="slide" data-ch="4">
-  <div class="kicker">추적성</div>
-  <h2>모든 결정이 파일로 남는다</h2>
-  <p class="lede">산출물은 <code>.copilot-tracking/</code>(gitignore 대상) 아래 날짜별로 쌓이고, 안정적인 ID 체계로 서로를 참조합니다.</p>
+<section class="slide" data-ch="4" data-t-ko="모든 결정이 파일로 남는다" data-t-en="Every decision lands in a file">
+  <div class="kicker"><span class="ko">추적성</span><span class="en">Traceability</span></div>
+  <h2 class="ko">모든 결정이 파일로 남는다</h2>
+  <h2 class="en">Every decision lands in a file</h2>
+  <p class="lede ko">산출물은 <code>.copilot-tracking/</code>(gitignore 대상) 아래 날짜별로 쌓이고, 안정적인 ID 체계로 서로를 참조합니다.</p>
+  <p class="lede en">Artifacts accumulate by date under <code>.copilot-tracking/</code> (gitignored) and cross-reference each other through stable identifiers.</p>
   <div class="body split wide-left">
     <table>
-      <thead><tr><th>단계</th><th>산출물 경로</th><th>식별자</th></tr></thead>
+      <thead><tr>
+        <th><span class="ko">단계</span><span class="en">Phase</span></th>
+        <th><span class="ko">산출물 경로</span><span class="en">Artifact path</span></th>
+        <th><span class="ko">식별자</span><span class="en">Identifier</span></th>
+      </tr></thead>
       <tbody>
-        <tr><td>Research</td><td><code>research/{날짜}/</code></td><td>없음</td></tr>
+        <tr><td>Research</td><td><code>research/{date}/</code></td><td><span class="ko">없음</span><span class="en">none</span></td></tr>
         <tr><td>Plan</td><td><code>plans/</code> + <code>details/</code></td><td><code>Pxx</code>, <code>Pxx-Txx</code></td></tr>
         <tr><td>Critique</td><td><code>reviews/plans/</code></td><td>Pass / Revise / Blocked</td></tr>
         <tr><td>Implement</td><td><code>changes/</code></td><td><code>CHG-xxx</code> <code>DIV-xxx</code> <code>AM-xxx</code></td></tr>
@@ -766,29 +890,40 @@ kbd {
     </table>
     <div>
       <div class="card">
-        <h3>왜 파일에 남기는가</h3>
-        <p style="margin-bottom:10px">대화가 50K~200K 토큰으로 커지면 초기 지시(3K)가 <strong>최신 편향</strong>에 밀려 무시됩니다. 지시를 잊는 게 아니라 우선순위가 낮아지는 것입니다.</p>
-        <p>그래서 컨텍스트를 <code>/clear</code>로 비워도 작업은 이어집니다. 맥락이 <strong>대화가 아니라 디스크</strong>에 있기 때문입니다.</p>
+        <h3><span class="ko">왜 파일에 남기는가</span><span class="en">Why files, not chat</span></h3>
+        <p class="ko" style="margin-bottom:10px">대화가 50K~200K 토큰으로 커지면 초기 지시(3K)가 <strong>최신 편향</strong>에 밀려 무시됩니다. 지시를 잊는 게 아니라 우선순위가 낮아지는 것입니다.</p>
+        <p class="en" style="margin-bottom:10px">Once a conversation grows to 50K-200K tokens, the original 3K of instructions loses out to <strong>recency bias</strong>. The model does not forget them; it deprioritizes them.</p>
+        <p class="ko">그래서 컨텍스트를 <code>/clear</code>로 비워도 작업은 이어집니다. 맥락이 <strong>대화가 아니라 디스크</strong>에 있기 때문입니다.</p>
+        <p class="en">That is why you can <code>/clear</code> and keep going. The context lives <strong>on disk, not in the chat</strong>.</p>
       </div>
       <div class="flow" style="margin-top:14px">
-        <span class="step">리서치</span><span class="arr">→</span>
-        <span class="step">계획 + 상세</span><span class="arr">→</span>
-        <span class="step">변경 기록</span><span class="arr">→</span>
-        <span class="step">리뷰 + 라우팅</span>
+        <span class="step"><span class="ko">리서치</span><span class="en">Research</span></span><span class="arr">→</span>
+        <span class="step"><span class="ko">계획 + 상세</span><span class="en">Plan + details</span></span><span class="arr">→</span>
+        <span class="step"><span class="ko">변경 기록</span><span class="en">Change log</span></span><span class="arr">→</span>
+        <span class="step"><span class="ko">리뷰 + 라우팅</span><span class="en">Review + routing</span></span>
       </div>
     </div>
   </div>
-  <div class="notes"><b>9:45~11:00</b> 컨텍스트 엔지니어링이 이 프레임워크의 숨은 핵심. "3K vs 200K 토큰 비율" 숫자를 언급하면 설득력이 큼.</div>
+  <div class="notes ko"><b>9:45~11:00</b> 컨텍스트 엔지니어링이 이 프레임워크의 숨은 핵심. "3K vs 200K 토큰 비율" 숫자를 언급하면 설득력이 큼.</div>
+  <div class="notes en"><b>9:45-11:00</b> Context engineering is the hidden core here. Citing the 3K vs 200K token ratio lands the argument.</div>
 </section>
 
-<section class="slide" data-ch="5">
-  <div class="kicker">범위</div>
-  <h2>도메인 패키지: 무게 중심은 기획과 보안</h2>
-  <p class="lede">4계층이 같은 패키지 이름을 공유합니다. 아래 분포가 저장소가 실제로 어디에 투자했는지 보여줍니다.</p>
+<section class="slide" data-ch="5" data-t-ko="도메인 패키지 지도" data-t-en="Domain package map">
+  <div class="kicker"><span class="ko">범위</span><span class="en">Scope</span></div>
+  <h2 class="ko">도메인 패키지: 무게 중심은 기획과 보안</h2>
+  <h2 class="en">Domain packages: the weight sits in planning and security</h2>
+  <p class="lede ko">4계층이 같은 패키지 이름을 공유합니다. 아래 분포가 저장소가 실제로 어디에 투자했는지 보여줍니다.</p>
+  <p class="lede en">All four tiers share the same package names. This distribution shows where the repository actually invested.</p>
   <div class="body split figure-right">
     <div>
     <table>
-      <thead><tr><th>패키지</th><th class="num">에이전트</th><th class="num">프롬프트</th><th class="num">인스트럭션</th><th class="num">스킬</th></tr></thead>
+      <thead><tr>
+        <th><span class="ko">패키지</span><span class="en">Package</span></th>
+        <th class="num"><span class="ko">에이전트</span><span class="en">Agents</span></th>
+        <th class="num"><span class="ko">프롬프트</span><span class="en">Prompts</span></th>
+        <th class="num"><span class="ko">인스트럭션</span><span class="en">Instr.</span></th>
+        <th class="num"><span class="ko">스킬</span><span class="en">Skills</span></th>
+      </tr></thead>
       <tbody>
         <tr><td><code>project-planning</code></td><td class="num">14</td><td class="num">0</td><td class="num">7</td><td class="num">15</td></tr>
         <tr><td><code>security</code></td><td class="num">10</td><td class="num">15</td><td class="num">6</td><td class="num">13</td></tr>
@@ -796,199 +931,237 @@ kbd {
         <tr><td><code>hve-core</code></td><td class="num">6</td><td class="num">11</td><td class="num">8</td><td class="num">9</td></tr>
         <tr><td><code>design-thinking</code></td><td class="num">2</td><td class="num">15</td><td class="num">1</td><td class="num">6</td></tr>
         <tr><td><code>rpi</code></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">8</td></tr>
-        <tr><td>기타 (접근성·RAI·실험·공유)</td><td class="num">17</td><td class="num">8</td><td class="num">28</td><td class="num">22</td></tr>
-        <tr class="total"><td>합계</td><td class="num">58</td><td class="num">49</td><td class="num">64</td><td class="num">75</td></tr>
+        <tr><td><span class="ko">기타 (접근성·RAI·실험·공유)</span><span class="en">Other (a11y, RAI, experimental, shared)</span></td><td class="num">17</td><td class="num">8</td><td class="num">28</td><td class="num">22</td></tr>
+        <tr class="total"><td><span class="ko">합계</span><span class="en">Total</span></td><td class="num">58</td><td class="num">49</td><td class="num">64</td><td class="num">75</td></tr>
       </tbody>
     </table>
     </div>
-    <figure><img src="assets/06-domain-map.svg" alt="기획, 보안, 접근성 도메인 체인이 RPI 구현으로 모이고 코드 리뷰로 이어지는 구조도"></figure>
+    <figure><img src="assets/06-domain-map.svg" data-src="assets/06-domain-map.svg" alt="Planning, security, and accessibility chains converging into RPI implementation and code review"></figure>
   </div>
-  <div class="notes"><b>11:00~12:00</b> 표 전체를 읽지 말고 상위 3개만. "기획과 보안이 가장 두껍다"가 메시지. RPI는 스킬 8개뿐인데 라이프사이클 전체를 담당한다는 대비가 인상적. <b>보안 커버리지</b> OWASP Top 10 · LLM · Agentic · MCP · CI/CD · Docker · Infrastructure 전 시리즈에 STRIDE 위협 모델링, SLSA·SBOM 공급망, OpenVEX 트리아지까지 포함.</div>
+  <div class="notes ko"><b>11:00~12:00</b> 표 전체를 읽지 말고 상위 3개만. "기획과 보안이 가장 두껍다"가 메시지. RPI는 스킬 8개뿐인데 라이프사이클 전체를 담당한다는 대비가 인상적. <b>보안 커버리지</b> OWASP Top 10 · LLM · Agentic · MCP · CI/CD · Docker · Infrastructure 전 시리즈에 STRIDE 위협 모델링, SLSA·SBOM 공급망, OpenVEX 트리아지까지 포함.</div>
+  <div class="notes en"><b>11:00-12:00</b> Read only the top three rows. The message is "planning and security are the heaviest." The contrast that RPI carries the whole lifecycle with just eight skills lands well. <b>Security coverage</b> spans the full OWASP series (Top 10, LLM, Agentic, MCP, CI/CD, Docker, Infrastructure) plus STRIDE threat modeling, SLSA and SBOM supply chain, and OpenVEX triage.</div>
 </section>
 
-<section class="slide" data-ch="5">
-  <div class="kicker">부가 프레임워크</div>
-  <h2>Design Thinking: 잘못된 문제를 풀지 않기 위해</h2>
-  <p class="lede">9개 메서드를 3개 공간으로 나누고, 공간마다 요구하는 완성도를 다르게 정의합니다.</p>
+<section class="slide" data-ch="5" data-t-ko="Design Thinking 9개 메서드" data-t-en="The nine Design Thinking methods">
+  <div class="kicker"><span class="ko">부가 프레임워크</span><span class="en">Companion framework</span></div>
+  <h2 class="ko">Design Thinking: 잘못된 문제를 풀지 않기 위해</h2>
+  <h2 class="en">Design Thinking: so you do not solve the wrong problem</h2>
+  <p class="lede ko">9개 메서드를 3개 공간으로 나누고, 공간마다 요구하는 완성도를 다르게 정의합니다.</p>
+  <p class="lede en">Nine methods across three spaces, each space with a deliberately different fidelity bar.</p>
   <div class="body">
     <div class="grid g3">
       <div class="card">
-        <span class="badge soft">메서드 1~3</span>
-        <h3 style="margin-top:8px">🔍 문제 공간</h3>
-        <p style="margin-bottom:10px">범위 대화 · 디자인 리서치 · 입력 종합</p>
-        <p><strong>거칠고 탐색적</strong>인 산출물. 답을 내지 않고 "누구의 무슨 문제인가"만 확정합니다.</p>
+        <span class="badge soft"><span class="ko">메서드 1~3</span><span class="en">Methods 1-3</span></span>
+        <h3 style="margin-top:8px">🔍 <span class="ko">문제 공간</span><span class="en">Problem space</span></h3>
+        <p style="margin-bottom:10px"><span class="ko">범위 대화 · 디자인 리서치 · 입력 종합</span><span class="en">Scope conversations · design research · input synthesis</span></p>
+        <p class="ko"><strong>거칠고 탐색적</strong>인 산출물. 답을 내지 않고 "누구의 무슨 문제인가"만 확정합니다.</p>
+        <p class="en">Output stays <strong>rough and exploratory</strong>. No answers yet, only whose problem it is and what it is.</p>
       </div>
       <div class="card">
-        <span class="badge soft">메서드 4~6</span>
-        <h3 style="margin-top:8px">💡 솔루션 공간</h3>
-        <p style="margin-bottom:10px">브레인스토밍 · 사용자 콘셉트 · 저충실 프로토타입</p>
-        <p><strong>다듬는 것을 명시적으로 금지</strong>합니다. 예쁘게 만들면 이해관계자가 비판을 못 하기 때문입니다.</p>
+        <span class="badge soft"><span class="ko">메서드 4~6</span><span class="en">Methods 4-6</span></span>
+        <h3 style="margin-top:8px">💡 <span class="ko">솔루션 공간</span><span class="en">Solution space</span></h3>
+        <p style="margin-bottom:10px"><span class="ko">브레인스토밍 · 사용자 콘셉트 · 저충실 프로토타입</span><span class="en">Brainstorming · user concepts · low-fidelity prototypes</span></p>
+        <p class="ko"><strong>다듬는 것을 명시적으로 금지</strong>합니다. 예쁘게 만들면 이해관계자가 비판을 못 하기 때문입니다.</p>
+        <p class="en">Polish is <strong>explicitly forbidden</strong>. Make it pretty and stakeholders stop criticizing it.</p>
       </div>
       <div class="card">
-        <span class="badge soft">메서드 7~9</span>
-        <h3 style="margin-top:8px">🔧 구현 공간</h3>
-        <p style="margin-bottom:10px">고충실 프로토타입 · 사용자 테스트 · 규모 확장</p>
-        <p><strong>기능적으로 엄밀하되</strong> 시각적 광택은 없는 상태를 유지합니다.</p>
+        <span class="badge soft"><span class="ko">메서드 7~9</span><span class="en">Methods 7-9</span></span>
+        <h3 style="margin-top:8px">🔧 <span class="ko">구현 공간</span><span class="en">Implementation space</span></h3>
+        <p style="margin-bottom:10px"><span class="ko">고충실 프로토타입 · 사용자 테스트 · 규모 확장</span><span class="en">High-fidelity prototypes · user testing · iteration at scale</span></p>
+        <p class="ko"><strong>기능적으로 엄밀하되</strong> 시각적 광택은 없는 상태를 유지합니다.</p>
+        <p class="en">Stays <strong>functionally rigorous</strong> without visual polish.</p>
       </div>
     </div>
-    <div class="callout" style="margin-top:18px">
+    <div class="callout ko" style="margin-top:18px">
       9개를 다 돌 필요는 없습니다. <strong>3개 종료 지점</strong>(메서드 3 · 6 · 9)에서 확신도 마커와 이해관계자 맵을 붙여 <code>rpi-research</code>로 넘깁니다. RPI 쪽에서 가정이 틀렸다고 판단하면 메서드 1로 되돌립니다.
     </div>
+    <div class="callout en" style="margin-top:18px">
+      You do not have to run all nine. At <strong>three exit points</strong> (methods 3, 6, and 9) the handoff goes to <code>rpi-research</code> with confidence markers and a stakeholder map. If RPI finds the assumptions wrong, work returns to method 1.
+    </div>
   </div>
-  <div class="notes"><b>12:00~12:45</b> "솔루션 공간에서 다듬기를 금지한다"가 가장 반응이 좋은 포인트. 9개 산업별 어휘 레퍼런스도 있다고 한 줄 덧붙이기.</div>
+  <div class="notes ko"><b>12:00~12:45</b> "솔루션 공간에서 다듬기를 금지한다"가 가장 반응이 좋은 포인트. 9개 산업별 어휘 레퍼런스도 있다고 한 줄 덧붙이기.</div>
+  <div class="notes en"><b>12:00-12:45</b> "Polish is forbidden in the solution space" gets the best reaction. Add one line that nine industry-specific vocabulary references exist.</div>
 </section>
 
-<section class="slide" data-ch="6">
-  <div class="kicker">신뢰성</div>
-  <h2>프롬프트도 CI로 검증한다</h2>
-  <p class="lede">70개 워크플로가 PR 검증, 보안 스캔, 릴리스 사다리를 담당합니다. 문서와 스크립트만으로는 프롬프트 품질을 보장할 수 없기 때문에 별도 평가 스위트를 둡니다.</p>
+<section class="slide" data-ch="6" data-t-ko="프롬프트도 CI로 검증한다" data-t-en="Prompts are validated in CI too">
+  <div class="kicker"><span class="ko">신뢰성</span><span class="en">Reliability</span></div>
+  <h2 class="ko">프롬프트도 CI로 검증한다</h2>
+  <h2 class="en">Prompts get validated in CI too</h2>
+  <p class="lede ko">70개 워크플로가 PR 검증, 보안 스캔, 릴리스 사다리를 담당합니다. 문서와 스크립트만으로는 프롬프트 품질을 보장할 수 없기 때문에 별도 평가 스위트를 둡니다.</p>
+  <p class="lede en">Seventy workflows cover PR validation, security scanning, and the release ladder. Docs and scripts alone cannot guarantee prompt quality, so there is a separate evaluation suite.</p>
   <div class="body split even">
     <figure>
-      <img src="assets/07-ci-pipeline.svg" alt="PR 검증 게이트를 통과한 변경이 main을 거쳐 프리릴리스와 스테이블 사다리를 따라 마켓플레이스로 배포되는 파이프라인 구조도" style="max-height:40vh">
+      <img src="assets/07-ci-pipeline.svg" data-src="assets/07-ci-pipeline.svg" alt="PR validation gate feeding main, then the prerelease and stable ladders to the marketplace" style="max-height:40vh">
     </figure>
     <div>
       <table>
-        <thead><tr><th>평가 스위트</th><th>검증 대상</th></tr></thead>
+        <thead><tr>
+          <th><span class="ko">평가 스위트</span><span class="en">Eval suite</span></th>
+          <th><span class="ko">검증 대상</span><span class="en">What it checks</span></th>
+        </tr></thead>
         <tbody>
-          <tr><td><code>skill-quality</code></td><td>스킬 설명 및 활성화 품질</td></tr>
-          <tr><td><code>agent-behavior</code></td><td>에이전트 동작 일관성</td></tr>
-          <tr><td><code>agent-conformance</code></td><td>플래너 6종의 단계 준수</td></tr>
-          <tr><td><code>behavior-conformance</code></td><td>프롬프트·인스트럭션·스킬 동작</td></tr>
-          <tr><td><code>baseline-equivalence</code></td><td>커스터마이즈 전후 동등성</td></tr>
+          <tr><td><code>skill-quality</code></td><td><span class="ko">스킬 설명 및 활성화 품질</span><span class="en">Skill description and activation quality</span></td></tr>
+          <tr><td><code>agent-behavior</code></td><td><span class="ko">에이전트 동작 일관성</span><span class="en">Agent behavior consistency</span></td></tr>
+          <tr><td><code>agent-conformance</code></td><td><span class="ko">플래너 6종의 단계 준수</span><span class="en">Phase conformance for six planners</span></td></tr>
+          <tr><td><code>behavior-conformance</code></td><td><span class="ko">프롬프트·인스트럭션·스킬 동작</span><span class="en">Prompt, instruction, and skill behavior</span></td></tr>
+          <tr><td><code>baseline-equivalence</code></td><td><span class="ko">커스터마이즈 전후 동등성</span><span class="en">Equivalence before and after customization</span></td></tr>
         </tbody>
       </table>
       <div class="card" style="margin-top:12px">
-        <h3>공급망 보안</h3>
-        <p>모든 GitHub Action은 SHA로 핀 고정되고, OpenSSF Scorecard·CodeQL·gitleaks·pip-audit이 주간으로 돌며, 릴리스 VSIX에는 서명된 프로비넌스가 붙습니다.</p>
+        <h3><span class="ko">공급망 보안</span><span class="en">Supply chain</span></h3>
+        <p class="ko">모든 GitHub Action은 SHA로 핀 고정되고, Scorecard·CodeQL·gitleaks가 주간으로 돕니다.</p>
+        <p class="en">Every GitHub Action is SHA-pinned, and Scorecard, CodeQL, and gitleaks run weekly.</p>
       </div>
     </div>
   </div>
-  <div class="notes"><b>12:45~13:30</b> "AI 자산도 테스트 대상"이라는 메시지. Vally CLI로 실제 모델을 돌려 동작을 채점한다는 점이 차별점.</div>
+  <div class="notes ko"><b>12:45~13:30</b> "AI 자산도 테스트 대상"이라는 메시지. Vally CLI로 실제 모델을 돌려 동작을 채점한다는 점이 차별점.</div>
+  <div class="notes en"><b>12:45-13:30</b> The message is that AI assets are test subjects too. The differentiator is that Vally CLI runs real models and grades the behavior.</div>
 </section>
 
-<section class="slide" data-ch="6">
-  <div class="kicker">도입</div>
-  <h2>세 가지 경로로 배포된다</h2>
-  <p class="lede">구성 목록의 단일 진실 원천은 루트 <code>plugin.json</code>입니다. 같은 자산 집합이 익스텐션, CLI 플러그인, 클론으로 나갑니다.</p>
+<section class="slide" data-ch="6" data-t-ko="세 가지 배포 경로" data-t-en="Three distribution channels">
+  <div class="kicker"><span class="ko">도입</span><span class="en">Adoption</span></div>
+  <h2 class="ko">세 가지 경로로 배포된다</h2>
+  <h2 class="en">It ships through three channels</h2>
+  <p class="lede ko">구성 목록의 단일 진실 원천은 루트 <code>plugin.json</code>입니다. 같은 자산 집합이 익스텐션, CLI 플러그인, 클론으로 나갑니다.</p>
+  <p class="lede en">The root <code>plugin.json</code> is the single source of truth for composition. The same asset set goes out as an extension, a CLI plugin, and a clone.</p>
   <div class="body split">
     <figure>
-      <img src="assets/08-distribution.svg" alt=".github 아티팩트가 plugin.json 매니페스트를 통해 익스텐션, CLI 플러그인, 클론 세 채널로 배포되는 구조도" style="max-height:40vh">
+      <img src="assets/08-distribution.svg" data-src="assets/08-distribution.svg" alt="Artifacts flowing through plugin.json into extension, CLI plugin, and clone channels" style="max-height:40vh">
     </figure>
     <div>
       <table>
-        <thead><tr><th>채널</th><th>대상</th></tr></thead>
+        <thead><tr>
+          <th><span class="ko">채널</span><span class="en">Channel</span></th>
+          <th><span class="ko">대상</span><span class="en">Who it is for</span></th>
+        </tr></thead>
         <tbody>
-          <tr><td>VS Code Extension</td><td>개별 개발자, 팀 표준 배포</td></tr>
-          <tr><td>Copilot CLI Plugin</td><td>터미널 중심 워크플로</td></tr>
-          <tr><td>Git Clone / Fork</td><td>자체 SDLC를 소유하려는 팀</td></tr>
+          <tr><td>VS Code Extension</td><td><span class="ko">개별 개발자, 팀 표준 배포</span><span class="en">Individual developers, team-wide standards</span></td></tr>
+          <tr><td>Copilot CLI Plugin</td><td><span class="ko">터미널 중심 워크플로</span><span class="en">Terminal-centric workflows</span></td></tr>
+          <tr><td>Git Clone / Fork</td><td><span class="ko">자체 SDLC를 소유하려는 팀</span><span class="en">Teams that want to own their SDLC</span></td></tr>
         </tbody>
       </table>
       <div class="card" style="margin-top:14px">
-        <h3>릴리스 사다리</h3>
+        <h3><span class="ko">릴리스 사다리</span><span class="en">Release ladder</span></h3>
         <div class="flow" style="margin-top:8px">
           <span class="step mono">main</span><span class="arr">→</span>
           <span class="step mono">release/prerelease</span><span class="arr">→</span>
           <span class="step mono">release/stable</span>
         </div>
-        <p style="margin-top:10px">프리릴리스는 홀수 마이너, 스테이블은 짝수 마이너 버전을 씁니다.</p>
+        <p class="ko" style="margin-top:10px">프리릴리스는 홀수 마이너, 스테이블은 짝수 마이너 버전을 씁니다.</p>
+        <p class="en" style="margin-top:10px">PreRelease uses odd minor versions; Stable uses even ones.</p>
       </div>
     </div>
   </div>
-  <div class="notes"><b>13:30~14:00</b> 팀 도입 관점 질문이 여기서 나옴. "포크해서 우리 것으로 만들라"는 것이 저장소의 공식 권고임을 강조.</div>
+  <div class="notes ko"><b>13:30~14:00</b> 팀 도입 관점 질문이 여기서 나옴. "포크해서 우리 것으로 만들라"는 것이 저장소의 공식 권고임을 강조.</div>
+  <div class="notes en"><b>13:30-14:00</b> Adoption questions surface here. Stress that forking and making it your own is the repository's own official recommendation.</div>
 </section>
 
-<section class="slide" data-ch="6">
-  <div class="kicker">실행</div>
-  <h2>5분 안에 시작할 수 있다</h2>
+<section class="slide" data-ch="6" data-t-ko="5분 안에 시작하기" data-t-en="Start in five minutes">
+  <div class="kicker"><span class="ko">실행</span><span class="en">Action</span></div>
+  <h2 class="ko">5분 안에 시작할 수 있다</h2>
+  <h2 class="en">You can start in five minutes</h2>
   <div class="body split wide-left">
     <figure>
-      <img src="assets/09-onboarding.svg" alt="익스텐션 설치부터 산출물 확인까지 다섯 단계를 거쳐 도메인 플래너, 팀 표준 배포, 직접 기여로 갈라지는 온보딩 경로도" style="max-height:34vh">
+      <img src="assets/09-onboarding.svg" data-src="assets/09-onboarding.svg" alt="Five onboarding steps branching into domain planners, team rollout, and contribution" style="max-height:34vh">
     </figure>
     <div>
       <div class="card">
         <h3>VS Code</h3>
-        <p style="margin-bottom:8px">마켓플레이스에서 <code>ise-hve-essentials.hve-core</code> 설치 → <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> → 에이전트 선택기에서 <code>RPI Agent</code></p>
+        <p class="ko" style="margin-bottom:8px">마켓플레이스에서 <code>ise-hve-essentials.hve-core</code> 설치 → <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> → 에이전트 선택기에서 <code>RPI Agent</code></p>
+        <p class="en" style="margin-bottom:8px">Install <code>ise-hve-essentials.hve-core</code> from the Marketplace → <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> → pick <code>RPI Agent</code> in the agent picker</p>
       </div>
       <div class="card" style="margin-top:12px">
         <h3>Copilot CLI</h3>
         <p class="mono" style="font-size:12.5px; color:var(--cp-text)">copilot plugin marketplace add microsoft/hve-core<br>copilot plugin install hve-core@hve-core</p>
       </div>
-      <div class="callout" style="margin-top:12px; font-size:13px">
+      <div class="callout ko" style="margin-top:12px; font-size:13px">
         첫 실습 추천: 자신의 코드베이스에 <code>/rpi-research</code>를 한 번 돌려보기. 5분이면 되고, 리서치 산출물이 어떻게 생겼는지 바로 감이 옵니다.
+      </div>
+      <div class="callout en" style="margin-top:12px; font-size:13px">
+        Best first exercise: run <code>/rpi-research</code> once against your own codebase. It takes five minutes and shows you exactly what a research artifact looks like.
       </div>
     </div>
   </div>
-  <div class="notes"><b>14:00~14:30</b> 데모가 가능하면 여기서 30초 라이브 데모. 안 되면 "오늘 끝나고 이것만 해보시라"로 액션 아이템 제시.</div>
+  <div class="notes ko"><b>14:00~14:30</b> 데모가 가능하면 여기서 30초 라이브 데모. 안 되면 "오늘 끝나고 이것만 해보시라"로 액션 아이템 제시.</div>
+  <div class="notes en"><b>14:00-14:30</b> If a demo is possible, do 30 seconds live here. Otherwise leave it as the one action item to try after the session.</div>
 </section>
 
-<section class="slide" data-ch="7">
-  <div class="kicker">정리</div>
-  <h2>가져갈 것 세 가지</h2>
+<section class="slide" data-ch="7" data-t-ko="가져갈 것 세 가지" data-t-en="Three takeaways">
+  <div class="kicker"><span class="ko">정리</span><span class="en">Wrap-up</span></div>
+  <h2 class="ko">가져갈 것 세 가지</h2>
+  <h2 class="en">Three things to take away</h2>
   <div class="body">
     <div class="grid g3" style="margin-top:10px">
       <div class="card accent">
         <b class="mono" style="font-size:28px; color:var(--cp-accent)">01</b>
-        <h3 style="margin-top:6px">제약이 품질을 만든다</h3>
-        <p style="color:var(--cp-text)">AI에게 더 많은 자유를 주는 게 아니라, 조사와 구현을 분리해 <strong>지금 할 수 없는 일</strong>을 정해주는 것이 핵심입니다.</p>
+        <h3 style="margin-top:6px"><span class="ko">제약이 품질을 만든다</span><span class="en">Constraints create quality</span></h3>
+        <p class="ko" style="color:var(--cp-text)">AI에게 더 많은 자유를 주는 게 아니라, 조사와 구현을 분리해 <strong>지금 할 수 없는 일</strong>을 정해주는 것이 핵심입니다.</p>
+        <p class="en" style="color:var(--cp-text)">The point is not giving AI more freedom. It is separating investigation from implementation and defining <strong>what it may not do right now</strong>.</p>
       </div>
       <div class="card accent">
         <b class="mono" style="font-size:28px; color:var(--cp-accent)">02</b>
-        <h3 style="margin-top:6px">맥락은 파일에 산다</h3>
-        <p style="color:var(--cp-text)">대화는 길어질수록 열화합니다. 결정·증거·변경을 디스크에 남기면 언제든 컨텍스트를 비우고 이어갈 수 있습니다.</p>
+        <h3 style="margin-top:6px"><span class="ko">맥락은 파일에 산다</span><span class="en">Context lives in files</span></h3>
+        <p class="ko" style="color:var(--cp-text)">대화는 길어질수록 열화합니다. 결정·증거·변경을 디스크에 남기면 언제든 컨텍스트를 비우고 이어갈 수 있습니다.</p>
+        <p class="en" style="color:var(--cp-text)">Conversations degrade as they grow. Put decisions, evidence, and changes on disk and you can clear context anytime and continue.</p>
       </div>
       <div class="card accent">
         <b class="mono" style="font-size:28px; color:var(--cp-accent)">03</b>
-        <h3 style="margin-top:6px">AI 자산도 검증 대상</h3>
-        <p style="color:var(--cp-text)">프롬프트·에이전트·스킬을 린트하고 테스트하고 평가하는 파이프라인이 있어야 팀 규모로 확장됩니다.</p>
+        <h3 style="margin-top:6px"><span class="ko">AI 자산도 검증 대상</span><span class="en">AI assets need validation</span></h3>
+        <p class="ko" style="color:var(--cp-text)">프롬프트·에이전트·스킬을 린트하고 테스트하고 평가하는 파이프라인이 있어야 팀 규모로 확장됩니다.</p>
+        <p class="en" style="color:var(--cp-text)">Scaling to a team requires a pipeline that lints, tests, and evaluates prompts, agents, and skills.</p>
       </div>
     </div>
     <div class="grid g2" style="margin-top:20px">
       <div class="card">
-        <h3>원본 저장소</h3>
+        <h3><span class="ko">원본 저장소</span><span class="en">Upstream</span></h3>
         <ul class="clean" style="margin-top:10px">
           <li><a href="https://github.com/microsoft/hve-core">github.com/microsoft/hve-core</a></li>
-          <li><a href="https://microsoft.github.io/hve-core/">microsoft.github.io/hve-core</a> (전체 문서)</li>
-          <li><a href="https://github.com/microsoft/hve-core/blob/main/docs/rpi/README.md">RPI 워크플로 심화</a></li>
-          <li><a href="https://github.com/microsoft/hve-core/blob/main/docs/customization/forking.md">포크하고 확장하기</a></li>
+          <li><a href="https://microsoft.github.io/hve-core/">microsoft.github.io/hve-core</a> <span class="ko">(전체 문서)</span><span class="en">(full docs)</span></li>
+          <li><a href="https://github.com/microsoft/hve-core/blob/main/docs/rpi/README.md"><span class="ko">RPI 워크플로 심화</span><span class="en">RPI workflow deep dive</span></a></li>
+          <li><a href="https://github.com/microsoft/hve-core/blob/main/docs/customization/forking.md"><span class="ko">포크하고 확장하기</span><span class="en">Forking and extending</span></a></li>
         </ul>
       </div>
       <div class="card">
-        <h3>이 브리핑</h3>
+        <h3><span class="ko">이 브리핑</span><span class="en">This brief</span></h3>
         <ul class="clean" style="margin-top:10px">
-          <li><a href="https://github.com/daeungo1/Github-Copilot-HVE-Core-brief">저장소 및 상세 문서</a></li>
-          <li><a href="https://github.com/daeungo1/Github-Copilot-HVE-Core-brief#readme">README 전체 브리핑 (11개 섹션)</a></li>
-          <li>다이어그램 9종은 <code>assets/</code>에 SVG로 제공</li>
-          <li>수치는 2026-09-02 <code>main</code> 스냅샷 기준</li>
+          <li><a href="https://github.com/daeungo1/Github-Copilot-HVE-Core-brief"><span class="ko">저장소 및 상세 문서</span><span class="en">Repository and detailed write-up</span></a></li>
+          <li><a href="https://github.com/daeungo1/Github-Copilot-HVE-Core-brief#readme"><span class="ko">README 전체 브리핑 (11개 섹션)</span><span class="en">Full README brief (11 sections)</span></a></li>
+          <li><span class="ko">다이어그램 9종은 <code>assets/</code>에 SVG로 제공</span><span class="en">Nine diagrams ship as SVG under <code>assets/</code></span></li>
+          <li><span class="ko">수치는 2026-09-02 <code>main</code> 스냅샷 기준</span><span class="en">Figures reflect the <code>main</code> snapshot of 2026-09-02</span></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="notes"><b>14:30~15:00</b> 세 카드만 다시 읽고 마무리. 질문은 여기서 받되, 시간이 없으면 링크로 유도.</div>
+  <div class="notes ko"><b>14:30~15:00</b> 세 카드만 다시 읽고 마무리. 질문은 여기서 받되, 시간이 없으면 링크로 유도.</div>
+  <div class="notes en"><b>14:30-15:00</b> Re-read the three cards and close. Take questions here, or point to the links if time is short.</div>
 </section>
 
-<section class="slide title-slide" data-ch="7">
+<section class="slide title-slide" data-ch="7" data-t-ko="감사합니다" data-t-en="Thank you">
   <div class="badge">Q &amp; A</div>
   <div class="title-rule"></div>
-  <h1>감사합니다</h1>
-  <p class="sub">HVE Core는 정답이 아니라 <strong>패턴의 원천</strong>입니다.<br>포크해서 여러분의 SDLC로 만드는 것이 저장소의 공식 권고입니다.</p>
+  <h1 class="ko">감사합니다</h1>
+  <h1 class="en">Thank you</h1>
+  <p class="sub ko">HVE Core는 정답이 아니라 <strong>패턴의 원천</strong>입니다.<br>포크해서 여러분의 SDLC로 만드는 것이 저장소의 공식 권고입니다.</p>
+  <p class="sub en">HVE Core is not the answer. It is a <strong>source of patterns</strong>.<br>Forking it into your own SDLC is the repository's official recommendation.</p>
   <div class="title-meta">
     <a class="chip" href="https://github.com/microsoft/hve-core">microsoft/hve-core</a>
-    <a class="chip" href="https://github.com/daeungo1/Github-Copilot-HVE-Core-brief">이 브리핑 저장소</a>
+    <a class="chip" href="https://github.com/daeungo1/Github-Copilot-HVE-Core-brief"><span class="ko">이 브리핑 저장소</span><span class="en">This brief</span></a>
   </div>
   <p class="lede" style="margin-top:26px; font-size:13px">
     © Microsoft Corporation · MIT License
   </p>
-  <div class="notes"><b>예상 질문</b> ① 우리 팀 스택에도 맞나 → 인스트럭션은 glob 기반이라 언어 무관하게 교체 가능. ② 토큰 비용은 → 서브에이전트 격리와 컨텍스트 리셋이 오히려 비용을 줄임. ③ 어디부터 → RPI 하나만 먼저.</div>
+  <div class="notes ko"><b>예상 질문</b> ① 우리 팀 스택에도 맞나 → 인스트럭션은 glob 기반이라 언어 무관하게 교체 가능. ② 토큰 비용은 → 서브에이전트 격리와 컨텍스트 리셋이 오히려 비용을 줄임. ③ 어디부터 → RPI 하나만 먼저.</div>
+  <div class="notes en"><b>Likely questions</b> (1) Does it fit our stack? Instructions are glob-based, so they swap out regardless of language. (2) What about token cost? Subagent isolation and context resets actually reduce it. (3) Where do we start? RPI alone, first.</div>
 </section>
 
 </main>
 
 <div class="progress"><i id="bar"></i></div>
-<button class="navbtn" id="prev" aria-label="이전 슬라이드">‹</button>
-<button class="navbtn" id="next" aria-label="다음 슬라이드">›</button>
+<button class="navbtn" id="prev" aria-label="Previous slide">‹</button>
+<button class="navbtn" id="next" aria-label="Next slide">›</button>
 
-<div class="overlay" id="overlay" role="dialog" aria-label="슬라이드 목차">
-  <h3>목차 <span class="chip" style="margin-left:8px">숫자 키로도 이동 가능</span></h3>
+<div class="overlay" id="overlay" role="dialog" aria-label="Slide contents">
+  <h3><span class="ko">목차</span><span class="en">Contents</span></h3>
   <div class="toc" id="toc"></div>
 </div>
 
@@ -1001,43 +1174,66 @@ kbd {
   const toc = document.getElementById('toc');
   const rail = document.getElementById('rail');
   let i = 0;
+  let lang = 'ko';
 
   const CHAPTERS = [
-    { n: 1, label: '문제' },
-    { n: 2, label: '구조' },
-    { n: 3, label: '아티팩트' },
-    { n: 4, label: 'RPI' },
-    { n: 5, label: '범위' },
-    { n: 6, label: '운영' },
-    { n: 7, label: '정리' }
+    { n: 1, ko: '문제', en: 'Problem' },
+    { n: 2, ko: '구조', en: 'Structure' },
+    { n: 3, ko: '아티팩트', en: 'Artifacts' },
+    { n: 4, ko: 'RPI', en: 'RPI' },
+    { n: 5, ko: '범위', en: 'Scope' },
+    { n: 6, ko: '운영', en: 'Operations' },
+    { n: 7, ko: '정리', en: 'Wrap-up' }
   ];
+
+  const TITLES = { ko: 'HVE-Core 한눈에 보기', en: 'HVE-Core Quick Overview' };
 
   document.getElementById('tot').textContent = slides.length;
 
-  const titleOf = (s) => {
-    const h = s.querySelector('h2, h1');
-    return h ? h.textContent.trim() : '슬라이드';
-  };
-
-  slides.forEach((s, n) => {
+  const tocBtns = slides.map((s, n) => {
     const b = document.createElement('button');
-    b.innerHTML = '<i>' + String(n + 1).padStart(2, '0') + '</i><span>' + titleOf(s) + '</span>';
+    const num = document.createElement('i');
+    num.textContent = String(n + 1).padStart(2, '0');
+    const label = document.createElement('span');
+    b.append(num, label);
     b.addEventListener('click', () => { go(n); closeToc(); });
     toc.appendChild(b);
+    return { btn: b, label, slide: s };
   });
 
   const railBtns = CHAPTERS.map((c) => {
     const b = document.createElement('button');
-    b.innerHTML = '<i>' + c.n + '</i><span>' + c.label + '</span>';
-    b.title = c.n + '. ' + c.label + ' 구간으로 이동';
+    const num = document.createElement('i');
+    num.textContent = c.n;
+    const label = document.createElement('span');
+    b.append(num, label);
     b.addEventListener('click', function () {
       this.blur();
       const t = slides.findIndex((s) => s.dataset.ch === String(c.n));
       if (t >= 0) go(t);
     });
     rail.appendChild(b);
-    return b;
+    return { btn: b, label, chapter: c };
   });
+
+  function applyLang(l) {
+    lang = l === 'en' ? 'en' : 'ko';
+    const root = document.documentElement;
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    document.title = TITLES[lang];
+    try { localStorage.setItem('hveBriefLang', lang); } catch (e) { /* private mode */ }
+
+    // English diagrams live alongside the Korean originals under assets/en/.
+    document.querySelectorAll('.deck img[data-src]').forEach((img) => {
+      const base = img.dataset.src;
+      const next = lang === 'en' ? base.replace('assets/', 'assets/en/') : base;
+      if (!img.src.endsWith(next)) img.src = next;
+    });
+
+    tocBtns.forEach((t) => { t.label.textContent = t.slide.dataset['t' + (lang === 'en' ? 'En' : 'Ko')] || ''; });
+    railBtns.forEach((r) => { r.label.textContent = r.chapter[lang]; });
+  }
 
   function go(n) {
     i = Math.max(0, Math.min(slides.length - 1, n));
@@ -1045,9 +1241,9 @@ kbd {
     bar.style.width = ((i + 1) / slides.length * 100) + '%';
     cur.textContent = i + 1;
     const ch = parseInt(slides[i].dataset.ch || '0', 10);
-    railBtns.forEach((b, k) => {
-      b.classList.toggle('active', CHAPTERS[k].n === ch);
-      b.classList.toggle('done', CHAPTERS[k].n < ch);
+    railBtns.forEach((r) => {
+      r.btn.classList.toggle('active', r.chapter.n === ch);
+      r.btn.classList.toggle('done', r.chapter.n < ch);
     });
     if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
     slides[i].scrollTop = 0;
@@ -1061,12 +1257,17 @@ kbd {
   document.getElementById('tocBtn').addEventListener('click', function () { this.blur(); toggleToc(); });
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closeToc(); });
 
+  document.querySelectorAll('.langsw button').forEach((b) => {
+    b.addEventListener('click', function () { this.blur(); applyLang(this.dataset.set); });
+  });
+
   document.getElementById('notesBtn').addEventListener('click', function () {
     document.body.classList.toggle('show-notes');
     this.classList.toggle('on', document.body.classList.contains('show-notes'));
   });
 
-  document.getElementById('themeBtn').addEventListener('click', () => {
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    this.blur();
     const root = document.documentElement;
     root.setAttribute('data-theme', root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
@@ -1083,6 +1284,7 @@ kbd {
     else if (k === 'o' || k === 'O') toggleToc();
     else if (k === 'Escape') closeToc();
     else if (k === 'n' || k === 'N') document.getElementById('notesBtn').click();
+    else if (k === 'l' || k === 'L') applyLang(lang === 'ko' ? 'en' : 'ko');
     else if (k === 'f' || k === 'F') {
       if (document.fullscreenElement) document.exitFullscreen();
       else document.documentElement.requestFullscreen();
@@ -1098,6 +1300,11 @@ kbd {
     x0 = null;
   }, { passive: true });
 
+  let saved = null;
+  try { saved = localStorage.getItem('hveBriefLang'); } catch (e) { /* private mode */ }
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  const browserKo = (navigator.language || '').toLowerCase().startsWith('ko');
+  applyLang(urlLang || saved || (browserKo ? 'ko' : 'en'));
   go(parseInt(location.hash.slice(1), 10) - 1 || 0);
 })();
 </script>

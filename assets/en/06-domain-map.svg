@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 640" width="780" height="640" role="img" aria-labelledby="t d">
+  <title id="t">Domain agents converging on RPI implementation</title>
+  <desc id="d">Planning, security, and accessibility agent chains route through the right-hand path into RPI implementation, whose output flows to code review and seven perspective subagents</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#afb8c1"/>
+    </marker>
+    <marker id="arrowS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#afb8c1"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .pt { font-size: 14px; font-weight: 700; fill: #1f2328; }
+      .c { font-size: 14px; font-weight: 600; fill: #1f2328; }
+      .m { font-size: 10.5px; fill: #59636e; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .h { font-size: 18px; font-weight: 700; fill: #1f2328; }
+      .s { font-size: 12.5px; fill: #59636e; }
+      .ln { fill: none; stroke: #afb8c1; stroke-width: 1.8; marker-end: url(#arrow); }
+      .lns { fill: none; stroke: #afb8c1; stroke-width: 1.5; marker-end: url(#arrowS); }
+      .lnp { fill: none; stroke: #afb8c1; stroke-width: 1.8; }
+    </style>
+  </defs>
+
+  <rect width="780" height="640" fill="#ffffff"/>
+
+  <path class="lnp" d="M656 66 L700 66 L700 412"/>
+  <path class="lnp" d="M656 182 L700 182"/>
+  <path class="lnp" d="M656 292 L700 292"/>
+  <path class="ln" d="M700 412 L474 412"/>
+  <path class="ln" d="M360 456 L360 486"/>
+  <path class="ln" d="M360 560 L360 570"/>
+
+  <rect x="16" y="14" width="640" height="104" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-dasharray="5 4"/>
+  <text class="pt" x="30" y="38">Planning · project-planning</text>
+  <rect x="30" y="48" width="141" height="58" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.4"/>
+  <text class="c" x="100" y="72" text-anchor="middle">Requirements</text>
+  <text class="m" x="100" y="92" text-anchor="middle">brd-builder</text>
+  <path class="lns" d="M171 77 L185 77"/>
+  <rect x="187" y="48" width="141" height="58" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.4"/>
+  <text class="c" x="257" y="72" text-anchor="middle">Product spec</text>
+  <text class="m" x="257" y="92" text-anchor="middle">prd-builder</text>
+  <path class="lns" d="M328 77 L342 77"/>
+  <rect x="344" y="48" width="141" height="58" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.4"/>
+  <text class="c" x="414" y="72" text-anchor="middle">Decomposition</text>
+  <text class="m" x="414" y="92" text-anchor="middle">functional-planner</text>
+  <path class="lns" d="M485 77 L499 77"/>
+  <rect x="501" y="48" width="141" height="58" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.4"/>
+  <text class="c" x="571" y="72" text-anchor="middle">Backlog</text>
+  <text class="m" x="571" y="92" text-anchor="middle">backlog-manager</text>
+
+  <rect x="16" y="130" width="640" height="104" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-dasharray="5 4"/>
+  <text class="pt" x="30" y="154">Security · security / rai</text>
+  <rect x="30" y="164" width="193" height="58" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.4"/>
+  <text class="c" x="126" y="188" text-anchor="middle">Threat model</text>
+  <text class="m" x="126" y="208" text-anchor="middle">security-planner</text>
+  <path class="lns" d="M223 193 L237 193"/>
+  <rect x="239" y="164" width="193" height="58" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.4"/>
+  <text class="c" x="335" y="188" text-anchor="middle">Supply chain</text>
+  <text class="m" x="335" y="208" text-anchor="middle">sssc-planner</text>
+  <path class="lns" d="M432 193 L446 193"/>
+  <rect x="448" y="164" width="193" height="58" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.4"/>
+  <text class="c" x="544" y="188" text-anchor="middle">AI risk</text>
+  <text class="m" x="544" y="208" text-anchor="middle">rai-planner</text>
+
+  <rect x="16" y="246" width="640" height="92" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-dasharray="5 4"/>
+  <text class="pt" x="30" y="270">Accessibility · accessibility</text>
+  <rect x="30" y="280" width="298" height="52" rx="8" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.4"/>
+  <text class="c" x="179" y="302" text-anchor="middle">Standards review (WCAG 2.2)</text>
+  <text class="m" x="179" y="321" text-anchor="middle">accessibility-planner</text>
+  <path class="lns" d="M328 306 L342 306"/>
+  <rect x="344" y="280" width="298" height="52" rx="8" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.4"/>
+  <text class="c" x="493" y="302" text-anchor="middle">Runtime verification</text>
+  <text class="m" x="493" y="321" text-anchor="middle">accessibility-reviewer</text>
+
+  <rect x="254" y="376" width="220" height="80" rx="12" fill="#b6e3ff" stroke="#0550ae" stroke-width="2.2"/>
+  <text class="h" x="364" y="408" text-anchor="middle">RPI implementation</text>
+  <text class="s" x="364" y="432" text-anchor="middle">research → plan → implement</text>
+
+  <rect x="230" y="486" width="260" height="74" rx="12" fill="#fff8c5" stroke="#9a6700" stroke-width="1.8"/>
+  <text class="h" x="360" y="516" text-anchor="middle">code-review</text>
+  <text class="s" x="360" y="540" text-anchor="middle">depth-tiered review orchestration</text>
+
+  <rect x="230" y="570" width="260" height="58" rx="12" fill="#fbefff" stroke="#8250df" stroke-width="1.8"/>
+  <text class="c" x="360" y="594" text-anchor="middle">7 perspective subagents</text>
+  <text class="s" x="360" y="614" text-anchor="middle">functional · standards · security · a11y</text>
+</svg>

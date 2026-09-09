@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" width="1080" height="540" role="img" aria-labelledby="t d">
+  <title id="t">CI validation and release pipeline</title>
+  <desc id="d">Pull requests pass a validation gate into main, then climb the prerelease and stable promotion ladders to the marketplace, while a weekly schedule runs security maintenance</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#afb8c1"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .pt { font-size: 13px; font-weight: 700; fill: #1f2328; }
+      .h { font-size: 14px; font-weight: 700; fill: #1f2328; }
+      .hw { font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .s { font-size: 11px; fill: #59636e; }
+      .sw { font-size: 11px; fill: #d1d9e0; }
+      .e { font-size: 11.5px; fill: #59636e; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .ln { fill: none; stroke: #afb8c1; stroke-width: 1.7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1080" height="540" fill="#ffffff"/>
+
+  <path class="ln" d="M180 88 L216 88"/>
+  <path class="ln" d="M640 119 C665 119 665 88 686 88"/>
+  <path class="ln" d="M775 116 L775 240 L135 240 L135 272"/>
+  <text class="e" x="450" y="232" text-anchor="middle">promotion PR opens after merge</text>
+  <path class="ln" d="M240 312 L286 312"/>
+  <path class="ln" d="M500 312 L546 312"/>
+  <path class="ln" d="M395 344 L395 384 L135 384 L135 412"/>
+  <text class="e" x="270" y="376" text-anchor="middle">promote after PreRelease ships</text>
+  <path class="ln" d="M240 452 L286 452"/>
+  <path class="ln" d="M500 452 L546 452"/>
+  <path class="ln" d="M945 336 L945 372"/>
+
+  <rect x="30" y="60" width="150" height="56" rx="10" fill="#1f2328"/>
+  <text class="hw" x="105" y="84" text-anchor="middle">Pull Request</text>
+  <text class="sw" x="105" y="102" text-anchor="middle">contributor branch</text>
+
+  <rect x="220" y="24" width="420" height="190" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-dasharray="5 4"/>
+  <text class="pt" x="236" y="48">PR validation gate · pr-validation.yml</text>
+  <rect x="236" y="60" width="184" height="64" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.4"/>
+  <text class="h" x="328" y="86" text-anchor="middle">Lint</text>
+  <text class="s mono" x="328" y="106" text-anchor="middle">md · yaml · json · ps · py</text>
+  <rect x="440" y="60" width="184" height="64" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.4"/>
+  <text class="h" x="532" y="86" text-anchor="middle">Security</text>
+  <text class="s mono" x="532" y="106" text-anchor="middle">CodeQL · pinning · perms</text>
+  <rect x="236" y="136" width="184" height="64" rx="8" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.4"/>
+  <text class="h" x="328" y="162" text-anchor="middle">Tests</text>
+  <text class="s mono" x="328" y="182" text-anchor="middle">Pester · pytest · node</text>
+  <rect x="440" y="136" width="184" height="64" rx="8" fill="#fbefff" stroke="#8250df" stroke-width="1.4"/>
+  <text class="h" x="532" y="162" text-anchor="middle">Evals</text>
+  <text class="s mono" x="532" y="182" text-anchor="middle">8 Vally suites</text>
+
+  <rect x="690" y="60" width="170" height="56" rx="10" fill="#b6e3ff" stroke="#0550ae" stroke-width="1.8"/>
+  <text class="h mono" x="775" y="84" text-anchor="middle">main</text>
+  <text class="s" x="775" y="102" text-anchor="middle">merged</text>
+
+  <rect x="30" y="280" width="210" height="64" rx="10" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+  <text class="h" x="135" y="308" text-anchor="middle">PreRelease promotion PR</text>
+  <text class="s" x="135" y="328" text-anchor="middle">reviewed, then merged</text>
+
+  <rect x="290" y="280" width="210" height="64" rx="10" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+  <text class="h mono" x="395" y="308" text-anchor="middle">release/prerelease</text>
+  <text class="s" x="395" y="328" text-anchor="middle">odd minor tag</text>
+
+  <rect x="550" y="280" width="230" height="64" rx="10" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+  <text class="h" x="665" y="308" text-anchor="middle">Marketplace publish</text>
+  <text class="s" x="665" y="328" text-anchor="middle">VS Code PreRelease channel</text>
+
+  <rect x="30" y="420" width="210" height="64" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.6"/>
+  <text class="h" x="135" y="448" text-anchor="middle">Stable promotion PR</text>
+  <text class="s" x="135" y="468" text-anchor="middle">reviewed, then merged</text>
+
+  <rect x="290" y="420" width="210" height="64" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.6"/>
+  <text class="h mono" x="395" y="448" text-anchor="middle">release/stable</text>
+  <text class="s" x="395" y="468" text-anchor="middle">even minor tag</text>
+
+  <rect x="550" y="420" width="230" height="64" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.6"/>
+  <text class="h" x="665" y="448" text-anchor="middle">Marketplace publish</text>
+  <text class="s" x="665" y="468" text-anchor="middle">VS Code Stable channel</text>
+
+  <rect x="840" y="280" width="210" height="56" rx="10" fill="#fff8c5" stroke="#9a6700" stroke-width="1.6"/>
+  <text class="h" x="945" y="304" text-anchor="middle">Weekly schedule</text>
+  <text class="s" x="945" y="322" text-anchor="middle">Sunday 02:00 UTC</text>
+
+  <rect x="840" y="372" width="210" height="88" rx="10" fill="#fff8c5" stroke="#9a6700" stroke-width="1.6"/>
+  <text class="h" x="945" y="400" text-anchor="middle">Security maintenance</text>
+  <text class="s" x="945" y="420" text-anchor="middle">OpenSSF Scorecard · VEX</text>
+  <text class="s" x="945" y="438" text-anchor="middle">SHA freshness · link checks</text>
+</svg>

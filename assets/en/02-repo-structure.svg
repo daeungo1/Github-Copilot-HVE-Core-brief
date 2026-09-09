@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 900" width="880" height="900" role="img" aria-labelledby="t d">
+  <title id="t">HVE Core repository structure</title>
+  <desc id="d">Repository root branching into .github, docs, scripts, evals, extension, and root metadata files, each expanding into its main entries</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#afb8c1"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .root { font-size: 17px; font-weight: 700; fill: #ffffff; }
+      .dir { font-size: 14px; font-weight: 600; fill: #1f2328; }
+      .lf { font-size: 12.5px; fill: #1f2328; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .ln { fill: none; stroke: #afb8c1; stroke-width: 1.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="880" height="900" fill="#ffffff"/>
+
+  <path class="ln" d="M200 449 C222 449 222 133 240 133"/>
+  <path class="ln" d="M200 449 C222 449 222 361 240 361"/>
+  <path class="ln" d="M200 449 C222 449 222 605 240 605"/>
+  <path class="ln" d="M200 449 C222 449 222 753 240 753"/>
+  <path class="ln" d="M200 449 C222 449 222 799 240 799"/>
+  <path class="ln" d="M200 449 C222 449 222 845 240 845"/>
+
+  <path class="ln" d="M440 133 C470 133 470 53 500 53"/>
+  <path class="ln" d="M440 133 C470 133 470 85 500 85"/>
+  <path class="ln" d="M440 133 C470 133 470 117 500 117"/>
+  <path class="ln" d="M440 133 C470 133 470 149 500 149"/>
+  <path class="ln" d="M440 133 C470 133 470 181 500 181"/>
+  <path class="ln" d="M440 133 C470 133 470 213 500 213"/>
+
+  <path class="ln" d="M440 361 C470 361 470 265 500 265"/>
+  <path class="ln" d="M440 361 C470 361 470 297 500 297"/>
+  <path class="ln" d="M440 361 C470 361 470 329 500 329"/>
+  <path class="ln" d="M440 361 C470 361 470 361 500 361"/>
+  <path class="ln" d="M440 361 C470 361 470 393 500 393"/>
+  <path class="ln" d="M440 361 C470 361 470 425 500 425"/>
+  <path class="ln" d="M440 361 C470 361 470 457 500 457"/>
+
+  <path class="ln" d="M440 605 C470 605 470 509 500 509"/>
+  <path class="ln" d="M440 605 C470 605 470 541 500 541"/>
+  <path class="ln" d="M440 605 C470 605 470 573 500 573"/>
+  <path class="ln" d="M440 605 C470 605 470 605 500 605"/>
+  <path class="ln" d="M440 605 C470 605 470 637 500 637"/>
+  <path class="ln" d="M440 605 C470 605 470 669 500 669"/>
+  <path class="ln" d="M440 605 C470 605 470 701 500 701"/>
+
+  <path class="ln" d="M440 753 L500 753"/>
+  <path class="ln" d="M440 799 L500 799"/>
+  <path class="ln" d="M440 845 L500 845"/>
+
+  <rect x="30" y="425" width="170" height="48" rx="10" fill="#0969da"/>
+  <text class="root mono" x="115" y="455" text-anchor="middle">hve-core/</text>
+
+  <rect x="240" y="112" width="200" height="42" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="139" text-anchor="middle">.github/</text>
+  <rect x="240" y="340" width="200" height="42" rx="9" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="367" text-anchor="middle">docs/</text>
+  <rect x="240" y="584" width="200" height="42" rx="9" fill="#fff8c5" stroke="#9a6700" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="611" text-anchor="middle">scripts/</text>
+  <rect x="240" y="732" width="200" height="42" rx="9" fill="#fbefff" stroke="#8250df" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="759" text-anchor="middle">evals/</text>
+  <rect x="240" y="778" width="200" height="42" rx="9" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+  <text class="dir mono" x="340" y="805" text-anchor="middle">extension/</text>
+  <rect x="240" y="824" width="200" height="42" rx="9" fill="#f6f8fa" stroke="#afb8c1" stroke-width="1.5"/>
+  <text class="dir" x="340" y="851" text-anchor="middle">root metadata</text>
+
+  <rect x="500" y="40" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf" x="514" y="58"><tspan class="mono">agents/</tspan> 58 agents</text>
+  <rect x="500" y="72" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf" x="514" y="90"><tspan class="mono">prompts/</tspan> 49 prompts</text>
+  <rect x="500" y="104" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf" x="514" y="122"><tspan class="mono">instructions/</tspan> 64 instructions</text>
+  <rect x="500" y="136" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf" x="514" y="154"><tspan class="mono">skills/</tspan> 75 skills</text>
+  <rect x="500" y="168" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf" x="514" y="186"><tspan class="mono">workflows/</tspan> 70 CI workflows</text>
+  <rect x="500" y="200" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf mono" x="514" y="218">copilot-instructions.md</text>
+
+  <rect x="500" y="252" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="270"><tspan class="mono">getting-started/</tspan> setup, first run</text>
+  <rect x="500" y="284" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="302"><tspan class="mono">rpi/</tspan> method deep dive</text>
+  <rect x="500" y="316" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="334"><tspan class="mono">hve-guide/</tspan> lifecycle + roles</text>
+  <rect x="500" y="348" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="366"><tspan class="mono">architecture/</tspan> artifacts, pipelines</text>
+  <rect x="500" y="380" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="398"><tspan class="mono">contributing/</tspan> contribution rules</text>
+  <rect x="500" y="412" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="430"><tspan class="mono">reference/</tspan> generated catalog</text>
+  <rect x="500" y="444" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#aceebb"/>
+  <text class="lf" x="514" y="462"><tspan class="mono">docusaurus/</tspan> docs site build</text>
+
+  <rect x="500" y="496" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="514"><tspan class="mono">linting/</tspan> markdown, YAML, frontmatter</text>
+  <rect x="500" y="528" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="546"><tspan class="mono">security/</tspan> pinning, permissions, feeds</text>
+  <rect x="500" y="560" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="578"><tspan class="mono">evals/</tspan> Vally evaluation runs</text>
+  <rect x="500" y="592" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="610"><tspan class="mono">plugins/</tspan> manifest sync</text>
+  <rect x="500" y="624" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="642"><tspan class="mono">extension/</tspan> VSIX prep and packaging</text>
+  <rect x="500" y="656" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="674"><tspan class="mono">tests/</tspan> Pester tests</text>
+  <rect x="500" y="688" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#f8e3a1"/>
+  <text class="lf" x="514" y="706"><tspan class="mono">lib/</tspan> shared PowerShell modules</text>
+
+  <rect x="500" y="740" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#e0c5ff"/>
+  <text class="lf" x="514" y="758">8 evaluation suites for agent behavior</text>
+  <rect x="500" y="786" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#b6e3ff"/>
+  <text class="lf" x="514" y="804">VS Code extension templates and packaging</text>
+  <rect x="500" y="832" width="340" height="26" rx="6" fill="#f6f8fa" stroke="#d1d9e0"/>
+  <text class="lf" x="514" y="850"><tspan class="mono">plugin.json</tspan> · <tspan class="mono">package.json</tspan> · governance</text>
+</svg>

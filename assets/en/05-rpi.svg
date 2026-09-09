@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 900" width="940" height="900" role="img" aria-labelledby="t d">
+  <title id="t">The RPI lifecycle and its artifacts</title>
+  <desc id="d">An evidence gate decides whether research runs, then planning, independent critique, implementation, and review follow, with follow-up routing defects, decision gaps, and evidence gaps back to earlier phases</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#afb8c1"/>
+    </marker>
+    <marker id="arrowd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d1d9e0"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .h { font-size: 16px; font-weight: 700; fill: #1f2328; }
+      .r { font-size: 12px; fill: #59636e; }
+      .p { font-size: 11.5px; fill: #59636e; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .e { font-size: 11.5px; fill: #59636e; }
+      .d { font-size: 14px; font-weight: 600; fill: #1f2328; }
+      .ln { fill: none; stroke: #afb8c1; stroke-width: 1.7; marker-end: url(#arrow); }
+      .lnd { fill: none; stroke: #d1d9e0; stroke-width: 1.6; stroke-dasharray: 6 4; marker-end: url(#arrowd); }
+    </style>
+  </defs>
+
+  <rect width="940" height="900" fill="#ffffff"/>
+
+  <path class="ln" d="M390 78 L390 96"/>
+  <path class="ln" d="M530 152 L616 151"/>
+  <text class="e" x="573" y="142" text-anchor="middle">no</text>
+  <path class="ln" d="M390 204 L390 264"/>
+  <text class="e" x="402" y="242">yes</text>
+  <path class="ln" d="M765 194 L765 240 L460 240 L460 264"/>
+  <path class="ln" d="M390 354 L390 392"/>
+  <path class="ln" d="M390 482 L390 520"/>
+  <text class="e" x="402" y="508">Pass</text>
+  <path class="ln" d="M390 610 L390 648"/>
+  <path class="ln" d="M390 738 L390 776"/>
+
+  <path class="lnd" d="M206 439 L130 439 L130 311 L206 311"/>
+  <text class="e" x="122" y="379" text-anchor="end">Revise</text>
+
+  <path class="lnd" d="M574 800 L598 800 L598 567 L574 567"/>
+  <text class="e" x="592" y="700" text-anchor="middle" transform="rotate(-90 592 700)">defects</text>
+  <path class="lnd" d="M574 812 L640 812 L640 311 L574 311"/>
+  <text class="e" x="634" y="640" text-anchor="middle" transform="rotate(-90 634 640)">decision gap</text>
+  <path class="lnd" d="M574 824 L682 824 L682 198"/>
+  <text class="e" x="676" y="560" text-anchor="middle" transform="rotate(-90 676 560)">evidence gap</text>
+
+  <rect x="210" y="26" width="360" height="52" rx="26" fill="#1f2328"/>
+  <text x="390" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Task context + existing evidence</text>
+
+  <polygon points="250,152 390,100 530,152 390,204" fill="#fff8c5" stroke="#9a6700" stroke-width="1.8"/>
+  <text class="d" x="390" y="158" text-anchor="middle">Evidence adequate?</text>
+
+  <rect x="620" y="108" width="290" height="86" rx="12" fill="#ddf4ff" stroke="#0969da" stroke-width="1.8"/>
+  <text class="h" x="765" y="138" text-anchor="middle">🔬 rpi-research</text>
+  <text class="r" x="765" y="158" text-anchor="middle">read-only · evidence vs assumptions</text>
+  <text class="p" x="765" y="178" text-anchor="middle">research/{date}/{task}-research.md</text>
+
+  <rect x="210" y="268" width="360" height="86" rx="12" fill="#ddf4ff" stroke="#0969da" stroke-width="1.8"/>
+  <text class="h" x="390" y="298" text-anchor="middle">📋 rpi-plan</text>
+  <text class="r" x="390" y="318" text-anchor="middle">phases · acceptance · Pxx / Pxx-Txx</text>
+  <text class="p" x="390" y="338" text-anchor="middle">plans/{date}/ + details/{date}/</text>
+
+  <rect x="210" y="396" width="360" height="86" rx="12" fill="#fbefff" stroke="#8250df" stroke-width="1.8"/>
+  <text class="h" x="390" y="426" text-anchor="middle">🧐 plan-critique</text>
+  <text class="r" x="390" y="446" text-anchor="middle">independent · Pass / Revise / Blocked</text>
+  <text class="p" x="390" y="466" text-anchor="middle">reviews/plans/{date}/</text>
+
+  <rect x="210" y="524" width="360" height="86" rx="12" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.8"/>
+  <text class="h" x="390" y="554" text-anchor="middle">⚡ rpi-implement</text>
+  <text class="r" x="390" y="574" text-anchor="middle">approved scope · CHG / DIV / AM</text>
+  <text class="p" x="390" y="594" text-anchor="middle">changes/{date}/{task}-changes.md</text>
+
+  <rect x="210" y="652" width="360" height="86" rx="12" fill="#fff8c5" stroke="#9a6700" stroke-width="1.8"/>
+  <text class="h" x="390" y="682" text-anchor="middle">✅ rpi-review</text>
+  <text class="r" x="390" y="702" text-anchor="middle">reconcile vs plan · RV-xxx severity</text>
+  <text class="p" x="390" y="722" text-anchor="middle">reviews/logs/{date}/{task}-review.md</text>
+
+  <rect x="210" y="780" width="360" height="64" rx="12" fill="#ffebe9" stroke="#cf222e" stroke-width="1.8"/>
+  <text class="h" x="390" y="808" text-anchor="middle">➡️ Follow-up</text>
+  <text class="r" x="390" y="828" text-anchor="middle">routes defects · decisions · evidence · residual</text>
+</svg>
