@@ -278,6 +278,23 @@ html[data-lang="en"] .langsw button[data-set="en"] {
   letter-spacing: -1px;
   line-height: 1.15;
 }
+.t-lead {
+  display: block;
+  font-size: clamp(16px, 1.95vw, 27px);
+  font-weight: 600;
+  letter-spacing: .3px;
+  line-height: 1.3;
+  color: var(--cp-text-muted);
+  margin-bottom: 10px;
+}
+.t-core {
+  display: block;
+  font-size: clamp(29px, 4.7vw, 57px);
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  line-height: 1.12;
+}
+.t-core b { color: var(--cp-accent); font-weight: 800; }
 .title-slide .sub { color: var(--cp-text-muted); font-size: clamp(16px, 1.8vw, 23px); max-width: 62ch; }
 .title-rule { width: 84px; height: 5px; background: linear-gradient(90deg, var(--cp-accent), var(--cp-accent2)); border-radius: 3px; margin: 22px auto; }
 .title-meta { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
@@ -550,10 +567,13 @@ kbd {
 
 <main class="deck" id="deck">
 
-<section class="slide title-slide" data-ch="0" data-t-ko="HVE Core" data-t-en="HVE Core">
+<section class="slide title-slide" data-ch="0" data-t-ko="AI-DLC : HVE-Core" data-t-en="AI-DLC : HVE-Core">
   <div class="badge">Quick Overview</div>
   <div class="title-rule"></div>
-  <h1>HVE Core</h1>
+  <h1>
+    <span class="t-lead">AI-Driven Development Life Cycle</span>
+    <span class="t-core"><b>HVE-Core</b> in Microsoft</span>
+  </h1>
   <p class="sub ko">GitHub Copilot을 <strong>반복 가능하고 표준에 맞는</strong> 방식으로 쓰기 위한<br>에이전틱 SDLC 프레임워크 구조 브리핑</p>
   <p class="sub en">A structural brief on the agentic SDLC framework that makes GitHub Copilot work<br><strong>repeatable and standards-aligned</strong></p>
   <div class="title-meta">
